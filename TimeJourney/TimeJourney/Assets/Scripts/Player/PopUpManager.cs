@@ -12,12 +12,13 @@ public class PopUpManager : MonoBehaviour {
 		
 	}
 
-    void OnTriggerStay(Collider other)
+    //To be done
+    void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
             Debug.Log("True");
-            gameObject.SetActive(false);
+            gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
   
