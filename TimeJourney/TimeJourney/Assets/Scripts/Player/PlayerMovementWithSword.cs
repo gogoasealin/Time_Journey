@@ -12,7 +12,8 @@ public class PlayerMovementWithSword : MonoBehaviour {
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
-    bool attack = false;
+ //   bool attack = false;
+    [SerializeField] bool oneJump = false;
 
     void Update()
     {
@@ -23,17 +24,25 @@ public class PlayerMovementWithSword : MonoBehaviour {
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-            //animator.SetBool("IsJumping", true);
             Invoke("Jump", 0.15f);
+
+            //Debug.Log("attacking " + animator.GetBool("Attacking"));
+            //Debug.Log(" grounded : " + controller.m_Grounded);
+            //if (animator.GetBool("Attacking") && !oneJump)
+            //{
+            //    controller.Invoke("ForceJump", 0.15f);
+            //    oneJump = true;
+            //    controller.Invoke("SetGrounded", 0.15f);
+            //}
+
         }
 
         if(Input.GetMouseButtonDown(0))
         {
-            attack = true;
+            //attack = true;
             animator.SetBool("Attacking", true);
         }
       
-
     }
 
     void FixedUpdate()
@@ -45,6 +54,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+        oneJump = false;
     }
 
     public void Jump()
@@ -59,7 +69,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
 
     public void StopAttack()
     {
-        attack = false;
+        //attack = false;
         animator.SetBool("Attacking", false);
     }
 }

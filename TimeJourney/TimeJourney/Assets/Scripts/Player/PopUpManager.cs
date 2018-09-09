@@ -2,24 +2,26 @@
 
 public class PopUpManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    [SerializeField] private GameObject Child;
+
+
 
     //To be done
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
         {
-            Debug.Log("True");
-            gameObject.transform.parent.gameObject.SetActive(false);
+            Child.SetActive(true);
         }
     }
-  
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            Child.SetActive(false);
+        }
+    }
+
 }

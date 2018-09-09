@@ -297,6 +297,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_GroundCheck: {fileID: 4735461709178006}
+  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
