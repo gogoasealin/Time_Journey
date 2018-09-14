@@ -285,6 +285,7 @@ MonoBehaviour:
     m_Bits: 1024
   m_GroundCheck: {fileID: 4650647623570908}
   m_Grounded: 0
+  animator: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -315,7 +316,6 @@ MonoBehaviour:
   controller: {fileID: 114813287545512112}
   animator: {fileID: 95202541222486640}
   runSpeed: 7
-  oneJump: 0
 --- !u!212 &212287831073703388
 SpriteRenderer:
   m_ObjectHideFlags: 1
