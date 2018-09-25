@@ -13,7 +13,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
     bool jump = false;
     bool crouch = false;
  //   bool attack = false;
-    [SerializeField] bool oneJump = false;
+ //   [SerializeField] bool oneJump = false;
 
     void Update()
     {
@@ -54,7 +54,6 @@ public class PlayerMovementWithSword : MonoBehaviour {
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
-        oneJump = false;
     }
 
     public void Jump()
@@ -72,4 +71,6 @@ public class PlayerMovementWithSword : MonoBehaviour {
         //attack = false;
         animator.SetBool("Attacking", false);
     }
+
+
 }
