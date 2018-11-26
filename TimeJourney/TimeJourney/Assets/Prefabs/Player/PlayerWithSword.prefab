@@ -315,7 +315,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 114813287545512112}
   animator: {fileID: 95202541222486640}
+  stone: {fileID: 0}
+  stoneForAttack: {fileID: 0}
   runSpeed: 7
+  count: 0
+  attackPos: {fileID: 0}
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 0
+  attackRange: 0
 --- !u!212 &212287831073703388
 SpriteRenderer:
   m_ObjectHideFlags: 1
