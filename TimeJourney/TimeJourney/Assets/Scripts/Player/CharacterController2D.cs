@@ -56,11 +56,11 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
             //m_Rigidbody2D.MovePosition(Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing));
 
-			if (move > 0 && !m_FacingRight && !animator.GetBool("SwordAttack")) // if attack
+			if (move > 0 && !m_FacingRight)
 			{
 				Flip(0.3f);
 			}
-			else if (move < 0 && m_FacingRight && !animator.GetBool("SwordAttack"))
+			else if (move < 0 && m_FacingRight)
 			{
 				Flip(-0.3f);
 			}

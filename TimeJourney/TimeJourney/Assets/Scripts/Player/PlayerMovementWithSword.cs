@@ -17,6 +17,13 @@ public class PlayerMovementWithSword : MonoBehaviour {
     public LayerMask whatIsEnemies;
     public float attackRange;
 
+    private bool canAttack; // stop spaming attacks
+
+    private void Start()
+    {
+        canAttack = true;
+    }
+
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -29,14 +36,14 @@ public class PlayerMovementWithSword : MonoBehaviour {
             Invoke("Jump", 0.15f);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
-            Attack();
+            Invoke("Attack", 0.15f);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && canAttack)
         {
-            StoneAttack();
+            Invoke("StoneAttack", 0.05f);
         }
     }
 
@@ -74,8 +81,13 @@ public class PlayerMovementWithSword : MonoBehaviour {
         }
     }
 
-    public void StopAttack()
+    public void DisableAttack()
     {
-        animator.SetBool("Attacking", false);
+        canAttack = false;
+    }
+
+    public void EnableAttack()
+    {
+        canAttack = true;
     }
 }

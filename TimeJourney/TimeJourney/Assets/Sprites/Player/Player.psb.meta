@@ -2,62 +2,62 @@ fileFormatVersion: 2
 guid: 21b7f4e405039594eba6fc8e1f26324c
 ScriptedImporter:
   fileIDToRecycleName:
-    100000: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO
-    100002: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_1
-    100004: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_1/bone_2
-    100006: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_3
-    100008: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_3/bone_4
-    100010: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_3/bone_4/bone_5
-    100012: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_6
-    100014: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_6/bone_7
-    100016: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_8
-    100018: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_8/bone_9
-    100020: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_10
-    100022: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_10/bone_11
-    100024: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 6
-    100026: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 7
-    100028: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 8
-    100030: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 9
-    100032: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 10
-    100034: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 15 copy 8
-    400000: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Transform
-    400002: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_1/Transform
-    400004: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_1/bone_2/Transform
-    400006: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_3/Transform
-    400008: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_3/bone_4/Transform
-    400010: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_3/bone_4/bone_5/Transform
-    400012: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_6/Transform
-    400014: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_6/bone_7/Transform
-    400016: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_8/Transform
-    400018: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_8/bone_9/Transform
-    400020: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_10/Transform
-    400022: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/bone_10/bone_11/Transform
-    400024: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 6/Transform
-    400026: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 7/Transform
-    400028: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 8/Transform
-    400030: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 9/Transform
-    400032: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 10/Transform
-    400034: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 15 copy 8/Transform
-    2800002: PossiblyFinalPlayer
-    11400000: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 6/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400002: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 7/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400004: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 8/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400006: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 9/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400008: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 10/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400010: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 15 copy 8/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    21200012: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 6/SpriteRenderer
-    21200014: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 7/SpriteRenderer
-    21200016: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 8/SpriteRenderer
-    21200018: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 9/SpriteRenderer
-    21200020: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 10/SpriteRenderer
-    21200022: PossiblyFinalPlayer_GO/PossiblyFinalPlayer_GO/Layer 15 copy 8/SpriteRenderer
+    100036: Player_GO/Player_GO
+    100038: Player_GO/Player_GO/bone_1
+    100040: Player_GO/Player_GO/bone_1/bone_2
+    100042: Player_GO/Player_GO/bone_3
+    100044: Player_GO/Player_GO/bone_3/bone_4
+    100046: Player_GO/Player_GO/bone_3/bone_4/bone_5
+    100048: Player_GO/Player_GO/bone_6
+    100050: Player_GO/Player_GO/bone_6/bone_7
+    100052: Player_GO/Player_GO/bone_8
+    100054: Player_GO/Player_GO/bone_8/bone_9
+    100056: Player_GO/Player_GO/bone_10
+    100058: Player_GO/Player_GO/bone_10/bone_11
+    100060: Player_GO/Player_GO/Layer 6
+    100062: Player_GO/Player_GO/Layer 7
+    100064: Player_GO/Player_GO/Layer 8
+    100066: Player_GO/Player_GO/Layer 9
+    100068: Player_GO/Player_GO/Layer 10
+    100070: Player_GO/Player_GO/Layer 15 copy 8
+    400036: Player_GO/Player_GO/Transform
+    400038: Player_GO/Player_GO/bone_1/Transform
+    400040: Player_GO/Player_GO/bone_1/bone_2/Transform
+    400042: Player_GO/Player_GO/bone_3/Transform
+    400044: Player_GO/Player_GO/bone_3/bone_4/Transform
+    400046: Player_GO/Player_GO/bone_3/bone_4/bone_5/Transform
+    400048: Player_GO/Player_GO/bone_6/Transform
+    400050: Player_GO/Player_GO/bone_6/bone_7/Transform
+    400052: Player_GO/Player_GO/bone_8/Transform
+    400054: Player_GO/Player_GO/bone_8/bone_9/Transform
+    400056: Player_GO/Player_GO/bone_10/Transform
+    400058: Player_GO/Player_GO/bone_10/bone_11/Transform
+    400060: Player_GO/Player_GO/Layer 6/Transform
+    400062: Player_GO/Player_GO/Layer 7/Transform
+    400064: Player_GO/Player_GO/Layer 8/Transform
+    400066: Player_GO/Player_GO/Layer 9/Transform
+    400068: Player_GO/Player_GO/Layer 10/Transform
+    400070: Player_GO/Player_GO/Layer 15 copy 8/Transform
+    2800000: Player
+    11400012: Player_GO/Player_GO/Layer 6/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+    11400014: Player_GO/Player_GO/Layer 7/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+    11400016: Player_GO/Player_GO/Layer 8/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+    11400018: Player_GO/Player_GO/Layer 9/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+    11400020: Player_GO/Player_GO/Layer 10/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+    11400022: Player_GO/Player_GO/Layer 15 copy 8/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+    21200000: Player_GO/Player_GO/Layer 6/SpriteRenderer
+    21200002: Player_GO/Player_GO/Layer 7/SpriteRenderer
+    21200004: Player_GO/Player_GO/Layer 8/SpriteRenderer
+    21200006: Player_GO/Player_GO/Layer 9/SpriteRenderer
+    21200008: Player_GO/Player_GO/Layer 10/SpriteRenderer
+    21200010: Player_GO/Player_GO/Layer 15 copy 8/SpriteRenderer
     21300000: Layer 15 copy 8
     21300002: Layer 7
     21300004: Layer 9
     21300006: Layer 8
     21300008: Layer 6
     21300010: Layer 10
-    100100002: PossiblyFinalPlayer_GO
+    100100000: Player_GO
   externalObjects: {}
   userData: 
   assetBundleName: 
@@ -4859,27 +4859,27 @@ ScriptedImporter:
       bones: 040000000300000002000000
     dimension: {x: 0, y: 0}
   boneGOs:
-  - go: {fileID: 100002, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100038, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 0
-  - go: {fileID: 100004, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100040, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 1
-  - go: {fileID: 100006, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100042, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 2
-  - go: {fileID: 100008, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100044, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 3
-  - go: {fileID: 100010, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100046, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 4
-  - go: {fileID: 100012, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100048, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 5
-  - go: {fileID: 100014, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100050, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 6
-  - go: {fileID: 100016, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100052, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 7
-  - go: {fileID: 100018, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100054, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 8
-  - go: {fileID: 100020, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100056, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 9
-  - go: {fileID: 100022, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
+  - go: {fileID: 100058, guid: 21b7f4e405039594eba6fc8e1f26324c, type: 3}
     index: 10
   firstCreate: 0
   generateGOHierarchy: 0
