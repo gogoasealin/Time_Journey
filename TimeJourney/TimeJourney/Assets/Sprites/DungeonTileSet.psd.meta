@@ -2404,7 +2404,7 @@ TextureImporter:
     21304798: DungeonTileSet_2399
     21304800: DungeonTileSet_2400
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0

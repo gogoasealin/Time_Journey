@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SkeletonAttack : MonoBehaviour {
 
-    [SerializeField] private Animator anim;
-    [SerializeField] private Transform attackPos;
-    [SerializeField] LayerMask whatIsPlayer;
+    public Animator anim;
+    public Transform attackPos;
+    public LayerMask whatIsPlayer;
     public float attackRange;
     private bool canAttack;
 

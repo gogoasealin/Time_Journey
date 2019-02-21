@@ -3,7 +3,7 @@
 public class PopUpManager : MonoBehaviour {
 
 
-    [SerializeField] private GameObject Child;
+    public GameObject Child;
 
 
 

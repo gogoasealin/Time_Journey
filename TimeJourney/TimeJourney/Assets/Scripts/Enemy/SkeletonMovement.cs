@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonMovement : MonoBehaviour {
 
     //movement
-    [SerializeField] private Animator anim;
+    public Animator anim;
     public Vector2[] patrolingPosition; // all patrolling position
     public Vector3 movingToPosition; // position where currently moving
     public float moveSpeed;
@@ -15,7 +15,7 @@ public class SkeletonMovement : MonoBehaviour {
     [Tooltip("first direction where enemy is going (true = right, false = left)")]
     [SerializeField] private bool facingRight;
     public bool animating; // check if enemy should move or should play an special animation (other than moving)
-    [SerializeField] private BoxCollider2D boxColl;
+    public BoxCollider2D boxColl;
     [SerializeField] private bool reachedPosition; // check if we reach current movingPosition
 
 
@@ -25,11 +25,11 @@ public class SkeletonMovement : MonoBehaviour {
     [SerializeField] private Vector3 lastKnowPosition; // last position where player was seen
 
     // checkGround
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask playerLayer;
+    public LayerMask groundLayer;
+    public LayerMask playerLayer;
 
     // player
-    [SerializeField] private GameObject player;
+    public GameObject player;
 
     void Start () {
         nextPosition = 0;

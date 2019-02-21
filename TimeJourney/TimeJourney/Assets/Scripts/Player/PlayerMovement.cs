@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    [SerializeField] CharacterController2D controller;
-    [SerializeField] Animator animator;
+    public CharacterController2D controller;
+    public Animator animator;
 
     public float runSpeed = 7f;
 
     float horizontalMove = 0f;
     bool jump = false;
-    bool crouch = false;
 	
 	void Update () {
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -23,32 +23,16 @@ public class PlayerMovement : MonoBehaviour {
             jump = true;
             animator.SetBool("IsJumping", true);
         }
-
-
     }
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
-
     }
 
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
     }
-
-    //public void OnCrouching(bool isCrouching)
-    //{
-    //    //trebuie pus in update
-    //    if (Input.GetButtonDown("Crouch"))
-    //    {
-    //        crouch = true;
-    //    }else if(Input.GetButtonUp("Crouch"))
-    //    {
-    //        crouch = false;
-    //    }
-    ////    animator.SetBool("IsCrouching", isCrouching);
-    ////}
 }

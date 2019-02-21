@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueBackGround : MonoBehaviour {
 
-    [SerializeField] private Animator anim;
+    public Animator anim;
 
     private void OnEnable()
     {
