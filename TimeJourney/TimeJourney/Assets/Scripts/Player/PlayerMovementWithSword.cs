@@ -17,7 +17,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
     public LayerMask whatIsEnemies;
     public float attackRange;
 
-    private bool canAttack; // stop spaming attacks
+    public bool canAttack; // stop spaming attacks
 
     private void Start()
     {
