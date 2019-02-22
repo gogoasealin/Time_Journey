@@ -2,12 +2,16 @@
 
 public class PopUpManager : MonoBehaviour {
 
+    /// <summary>
+    /// can be extended to disable when button string ButtonName was pressed
+    /// </summary>
+    [HideInInspector]public GameObject Child;
 
-    public GameObject Child;
+    private void Start()
+    {
+        Child = transform.GetChild(0).gameObject;
+    }
 
-
-
-    //To be done
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")

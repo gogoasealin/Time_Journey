@@ -13,7 +13,7 @@ public class DialogueTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && dialog != null)
         {
             dialog.enabled = true;
         }
@@ -21,7 +21,7 @@ public class DialogueTrigger : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && dialog != null)
         {
             dialog.EndDialog();
         }

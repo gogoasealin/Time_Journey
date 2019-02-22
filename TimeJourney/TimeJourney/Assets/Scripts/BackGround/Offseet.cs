@@ -8,8 +8,6 @@ public class Offseet : MonoBehaviour
     public Renderer bgRend;
     public PlayerMovementWithSword pmws;
 
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         bgRend.material.mainTextureOffset += new Vector2(pmws.horizontalMove * Time.fixedDeltaTime * 0.001f, 0f);
