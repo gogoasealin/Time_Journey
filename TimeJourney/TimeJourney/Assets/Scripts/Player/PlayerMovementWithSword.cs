@@ -9,7 +9,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
 
     //movement
     public float runSpeed;
-    float horizontalMove;
+    [HideInInspector] public float horizontalMove;
     bool jump = false;
 
     //atacking
@@ -30,20 +30,20 @@ public class PlayerMovementWithSword : MonoBehaviour {
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && canAttack)
         {
             jump = true;
-            Invoke("Jump", 0.15f);
+            Jump();
         }
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
-            Invoke("Attack", 0.15f);
+            Attack();
         }
 
         if (Input.GetMouseButtonDown(1) && canAttack)
         {
-            Invoke("StoneAttack", 0.05f);
+            StoneAttack();
         }
     }
 
@@ -65,11 +65,13 @@ public class PlayerMovementWithSword : MonoBehaviour {
 
     public void StoneAttack()
     {
+        canAttack = false;
         animator.SetTrigger("StoneAttack");
     }
 
     public void Attack()
     {
+        canAttack = false;
         animator.SetTrigger("SwordAttack");
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
         for (int i = 0; i < enemiesToDamage.Length;++i)

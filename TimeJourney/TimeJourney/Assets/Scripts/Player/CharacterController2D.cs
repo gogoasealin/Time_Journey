@@ -9,7 +9,7 @@ public class CharacterController2D : MonoBehaviour
 	public LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
     public Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 
-	const float k_GroundedRadius = .2f;//era 0.1 // Radius of the overlap circle to determine if grounded
+	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	public bool m_Grounded;            // Whether or not the player is grounded.
 	private Rigidbody2D m_Rigidbody2D;
 	public bool m_FacingRight;  // For determining which way the player is currently facing.
@@ -41,9 +41,12 @@ public class CharacterController2D : MonoBehaviour
 			{
 				m_Grounded = true;
                 animator.SetBool("IsGrounded", true);
-                OnLandEvent.Invoke();                
+                animator.SetBool("IsJumping", false);
+                OnLandEvent.Invoke();
+                return;
             }
-		}        
+		}
+        animator.SetBool("IsJumping", true);
     }
 
 	public void Move(float move, bool jump)
