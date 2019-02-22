@@ -17,19 +17,25 @@ public class SwordAttacks : MonoBehaviour
         FireWeapon = SwordAttack;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && pmws.canAttack)
         {
             SwordAttack();
         }
+       
     }
+
+    //void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawSphere(attackPos.position, attackRange);
+    //}
 
     private void SwordAttack()
     {
         SwordAnimation();
-        SwordAttack();
+        SwordDamage();
     }
 
     public void SwordAnimation()
@@ -47,6 +53,7 @@ public class SwordAttacks : MonoBehaviour
             {
                 Debug.Log(enemiesToDamage[i].name);
             }
+            Debug.Log(enemiesToDamage[i].name);
         }
     }
 }
