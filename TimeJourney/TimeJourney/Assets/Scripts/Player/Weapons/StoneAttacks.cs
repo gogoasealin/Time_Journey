@@ -17,7 +17,7 @@ public class StoneAttacks : MonoBehaviour
 
     private void Start()
     {
-        pmws = GetComponentInParent<PlayerMovementWithSword>();
+        pmws = GameController.instance.player.GetComponent<PlayerMovementWithSword>();
         FireWeapon = StoneAttack;
     }
 

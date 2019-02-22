@@ -7,7 +7,7 @@ public class StoneChanger : MonoBehaviour
     public GameObject[] prefabtype; // list of prefabs of all type that player can change ex:fire/ice
     public GameObject[] parentForType; // the parent of the shots
     public GameObject[] particleSystemType;
-    public StoneAttacks StoneAttacks;
+    private StoneAttacks StoneAttacks;
 
     private void Start()
     {

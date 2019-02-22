@@ -8,12 +8,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
     //movement
     public float runSpeed;
     [HideInInspector] public float horizontalMove;
-    bool jump = false;
-
-    //atacking
-    public Transform attackPos;
-    public LayerMask whatIsEnemies;
-    public float attackRange;
+    private bool jump = false;
 
     public bool canAttack; // stop spaming attacks
 
@@ -34,13 +29,6 @@ public class PlayerMovementWithSword : MonoBehaviour {
             jump = true;
             Jump();
         }
-
-        if (Input.GetMouseButtonDown(0) && canAttack)
-        {
-            Attack();
-        }
-
-
     }
 
     void FixedUpdate()
@@ -57,20 +45,6 @@ public class PlayerMovementWithSword : MonoBehaviour {
     public void Jump()
     {
         animator.SetBool("IsJumping", true);
-    }
-
-    public void Attack()
-    {
-        canAttack = false;
-        animator.SetTrigger("SwordAttack");
-        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-        for (int i = 0; i < enemiesToDamage.Length;++i)
-        {
-            if (!enemiesToDamage[i].isTrigger)
-            {
-                Debug.Log(enemiesToDamage[i].name);
-            }
-        }
     }
 
     public void DisableAttack()
