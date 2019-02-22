@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovementWithSword : MonoBehaviour {
 
     public CharacterController2D controller;
-    public Animator animator;
+    [HideInInspector]public Animator animator;
 
     //movement
     public float runSpeed;
@@ -22,6 +20,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
     private void Start()
     {
         canAttack = true;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -30,7 +29,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        if (Input.GetButtonDown("Jump") && canAttack)
+        if (Input.GetButtonDown("Jump"))
         {
             jump = true;
             Jump();
@@ -41,10 +40,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
             Attack();
         }
 
-        if (Input.GetMouseButtonDown(1) && canAttack)
-        {
-            StoneAttack();
-        }
+
     }
 
     void FixedUpdate()
@@ -61,12 +57,6 @@ public class PlayerMovementWithSword : MonoBehaviour {
     public void Jump()
     {
         animator.SetBool("IsJumping", true);
-    }
-
-    public void StoneAttack()
-    {
-        canAttack = false;
-        animator.SetTrigger("StoneAttack");
     }
 
     public void Attack()
