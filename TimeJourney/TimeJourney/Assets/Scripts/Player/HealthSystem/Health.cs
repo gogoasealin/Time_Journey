@@ -5,22 +5,26 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int m_maxHp;
-    public bool m_hasDamageAnimation;
+    public int m_CurrentHealth;
+
+    public bool m_hasDamageAnimation = true;
     [HideInInspector]public Animator m_animator;
 
     public bool weakAtFire;
     public bool weakAtIce;
     public bool weakAtLight;
 
+
     private void Start()
     {
         m_animator = GetComponent<Animator>();
+        m_CurrentHealth = m_maxHp;
     }
 
     public virtual void GetDamage(int dmgAmount)
     {
-        m_maxHp -= dmgAmount;
-        if (m_maxHp <= 0)
+        m_CurrentHealth -= dmgAmount;
+        if (m_CurrentHealth <= 0)
         {
             Die();
             return;
@@ -38,40 +42,40 @@ public class Health : MonoBehaviour
             case "Fire":
                 if (weakAtFire)
                 {
-                    m_maxHp -= dmgAmount * 3;
+                    m_CurrentHealth -= dmgAmount * 3;
                 }
                 else
                 {
-                    m_maxHp -= dmgAmount;
+                    m_CurrentHealth -= dmgAmount;
                 }
                 break;
             case "Ice":
                 if (weakAtIce)
                 {
-                    m_maxHp -= dmgAmount * 3;
+                    m_CurrentHealth -= dmgAmount * 3;
                 }
                 else
                 {
-                    m_maxHp -= dmgAmount;
+                    m_CurrentHealth -= dmgAmount;
                 }
                 break;
             case "Light":
                 if (weakAtLight)
                 {
-                    m_maxHp -= dmgAmount * 3;
+                    m_CurrentHealth -= dmgAmount * 3;
                 }
                 else
                 {
-                    m_maxHp -= dmgAmount;
+                    m_CurrentHealth -= dmgAmount;
                 }
                 break;
             default:
-                m_maxHp -= dmgAmount;
+                m_CurrentHealth -= dmgAmount;
                 Debug.Log("something is not ok");
                 break;
         }
 
-        if (m_maxHp <= 0)
+        if (m_CurrentHealth <= 0)
         {
             Die();
             return;
@@ -90,7 +94,7 @@ public class Health : MonoBehaviour
 
     public virtual void GetDamageAnimation()
     {
-        Debug.Log("trigger set animation has played");
+        Debug.Log("trigger get dmg animation has played in normal way");
         //m_animator.SetTrigger("GetDamage");
     }
 
