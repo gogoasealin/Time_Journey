@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &353864970349279435
 Transform:
   m_ObjectHideFlags: 0
@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3947e0cbdf719b44abccd6ced520a63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: Light
+  ShotDamageAmount: 10
 --- !u!50 &4526940436792220637
 Rigidbody2D:
   serializedVersion: 4

@@ -44,11 +44,11 @@ public class StoneAttacks : MonoBehaviour
 
     public GameObject GetNextShot()
     {
-        foreach (Transform child in shotsParent.transform)
+        for(int i =0 ; i < shotsParent.transform.childCount; i++)
         {
-            if (!child.gameObject.activeSelf)
+            if(!shotsParent.transform.GetChild(i).gameObject.activeSelf)
             {
-                return child.gameObject;
+                return shotsParent.transform.GetChild(i).gameObject;
             }
         }
         GameObject newShot = Instantiate(shot, shotPosition.position, Quaternion.identity);

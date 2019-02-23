@@ -14,8 +14,12 @@ public class PlayerMovementWithSword : MonoBehaviour {
 
     private void Start()
     {
-        canAttack = true;
         animator = GetComponent<Animator>();
+    }
+
+    private void OnEnable()
+    {
+        canAttack = true;
     }
 
     void Update()

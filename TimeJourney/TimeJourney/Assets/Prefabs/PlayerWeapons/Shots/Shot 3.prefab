@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 353864970349279433, guid: fa0e5ef663078ab40b36b01b12080a12,
         type: 3}
       propertyPath: m_Name
-      value: Shot 3
+      value: IceShot
       objectReference: {fileID: 0}
     - target: {fileID: 353864970349279435, guid: fa0e5ef663078ab40b36b01b12080a12,
         type: 3}
@@ -77,10 +77,10 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.26159787
       objectReference: {fileID: 0}
-    - target: {fileID: 353864970349279434, guid: fa0e5ef663078ab40b36b01b12080a12,
+    - target: {fileID: 6324192595413623795, guid: fa0e5ef663078ab40b36b01b12080a12,
         type: 3}
-      propertyPath: m_Color.b
-      value: 1
+      propertyPath: Type
+      value: Ice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa0e5ef663078ab40b36b01b12080a12, type: 3}

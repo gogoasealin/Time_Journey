@@ -44,11 +44,11 @@ public class StoneChanger : MonoBehaviour
 
     public void SetType(string name)
     {
-        foreach (GameObject currentType in prefabtype)
+        for(int i = 0; i < prefabtype.Length; i++)
         {
-            if (currentType.name.Contains(name))
+            if (prefabtype[i].name.Contains(name))
             {
-                StoneAttacks.shot = currentType;
+                StoneAttacks.shot = prefabtype[i];
                 return;
             }
         }
@@ -56,11 +56,11 @@ public class StoneChanger : MonoBehaviour
 
     public void SetParent(string name)
     {
-        foreach (GameObject currentType in parentForType)
+        for (int i = 0; i < parentForType.Length; i++)
         {
-            if (currentType.name.Equals(name))
+            if (parentForType[i].name.Contains(name))
             {
-                StoneAttacks.shotsParent = currentType;
+                StoneAttacks.shotsParent = parentForType[i];
                 return;
             }
         }
@@ -68,15 +68,15 @@ public class StoneChanger : MonoBehaviour
 
     public void SetPS(string name)
     {
-        foreach (GameObject currentPS in particleSystemType)
+        for (int i = 0; i < particleSystemType.Length; i++)
         {
-            if (currentPS.name.Contains(name))
+            if (particleSystemType[i].name.Contains(name))
             {
-                currentPS.SetActive(true);
+                particleSystemType[i].SetActive(true);
             }
             else
             {
-                currentPS.SetActive(false);
+                particleSystemType[i].SetActive(false);
             }
         }
     }

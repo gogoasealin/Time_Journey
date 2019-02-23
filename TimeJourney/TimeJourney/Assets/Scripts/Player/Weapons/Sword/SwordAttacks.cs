@@ -10,6 +10,7 @@ public class SwordAttacks : MonoBehaviour
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange = 0.2f;
+    public int swordDamageAmount;
 
     void Start()
     {
@@ -52,8 +53,8 @@ public class SwordAttacks : MonoBehaviour
             if (!enemiesToDamage[i].isTrigger)
             {
                 Debug.Log(enemiesToDamage[i].name);
+                enemiesToDamage[i].GetComponent<Health>().GetDamage(swordDamageAmount);
             }
-            Debug.Log(enemiesToDamage[i].name);
         }
     }
 }

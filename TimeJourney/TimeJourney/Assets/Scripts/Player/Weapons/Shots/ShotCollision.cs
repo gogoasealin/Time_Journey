@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShotCollision : MonoBehaviour
 {
+    public string Type;
+    public int ShotDamageAmount;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag.Equals("BackGround"))
@@ -14,6 +17,7 @@ public class ShotCollision : MonoBehaviour
 
         if(other.tag.Equals("Enemy"))
         {
+            other.GetComponent<Health>().GetDamage(Type, ShotDamageAmount);
             gameObject.SetActive(false);
             Debug.Log(other.name);
         }
