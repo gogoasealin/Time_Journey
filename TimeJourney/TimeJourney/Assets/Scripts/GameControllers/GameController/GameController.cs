@@ -54,6 +54,9 @@ public class GameController : MonoBehaviour
     public void Revive()
     {
         GetComponent<RevivePlayer>().Revive();
+        m_death = false;
+        Time.timeScale = 1;
+
     }
 
     public void SaveLastPlayerPosition()
