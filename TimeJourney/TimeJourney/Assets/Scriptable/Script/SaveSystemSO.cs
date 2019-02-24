@@ -1,32 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class SaveSystem : MonoBehaviour
+[CreateAssetMenu(menuName = "SaveSystemSO")]
+public class SaveSystemSO : ScriptableObject
 {
-    public static SaveSystem instance;
-
     public Vector3 m_PlayerPosition;
     public string m_SceneName;
-
-
-    void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
 
     public void Save()
     {
@@ -38,7 +21,7 @@ public class SaveSystem : MonoBehaviour
         data.playerPositionX = GameController.instance.player.transform.position.x;
         data.playerPositionY = GameController.instance.player.transform.position.y;
         GameController.instance.SaveLastPlayerPosition();
- 
+
         data.SceneName = SceneManager.GetActiveScene().name;
         bf.Serialize(file, data);
         file.Close();
@@ -73,6 +56,8 @@ public class SaveSystem : MonoBehaviour
             data.SceneName = SceneManager.GetActiveScene().name;
             bf.Serialize(file, data);
             file.Close();
+
+
         }
     }
 }

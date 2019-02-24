@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
     public GameObject player;
-
+    public SaveSystemSO saveSystemSO;
     private bool m_death;
 
     // Menu
@@ -24,11 +24,7 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
-    }
-
-    public void Start()
-    {
-        SaveSystem.instance.Load();
+        LoadGame();
     }
 
     public void Update()
@@ -51,12 +47,22 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void Revive()
+    private void Revive()
     {
         GetComponent<RevivePlayer>().Revive();
         m_death = false;
         Time.timeScale = 1;
 
+    }
+
+    public void SaveGame()
+    {
+        saveSystemSO.Save();
+    }
+
+    public void LoadGame()
+    {
+        saveSystemSO.Load();
     }
 
     public void SaveLastPlayerPosition()
@@ -67,11 +73,7 @@ public class GameController : MonoBehaviour
     public void LoadLastPlayerPosition(Vector3 playerPosition)
     {
         GetComponent<RevivePlayer>().m_LastSavedPosition = playerPosition;
-        if(GameManager.instance.CheckCurrentScene())
-        {
-            Revive();
-        }
-
+        Revive();
     }
 
 

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public SaveSystemSO saveSystemSO;
 
     void Awake()
     {
@@ -19,20 +20,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeScene()
+    public void LoadScene()
     {
-        if(SceneManager.GetActiveScene().name.Equals("Main"))
-        {
-            SceneManager.LoadScene("Main2");
-        }
-        else
-        {
-            SceneManager.LoadScene("Main");
-        }
-    }
-
-    public bool CheckCurrentScene()
-    {
-        return SaveSystem.instance.m_SceneName.Equals(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(saveSystemSO.m_SceneName);
     }
 }
