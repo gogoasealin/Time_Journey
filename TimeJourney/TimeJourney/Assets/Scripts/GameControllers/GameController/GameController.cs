@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
 
     //Revive
 
-
     void Awake()
     {
         if (instance != null && instance != this)
@@ -25,16 +24,15 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
+    }
 
-        DontDestroyOnLoad(gameObject);
+    public void Start()
+    {
+        SaveSystem.instance.Load();
     }
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            SaveGame();
-        }
         if(Input.GetKeyDown(KeyCode.Backspace))
         {
             Revive();
@@ -58,9 +56,19 @@ public class GameController : MonoBehaviour
         GetComponent<RevivePlayer>().Revive();
     }
 
-    public void SaveGame()
+    public void SaveLastPlayerPosition()
     {
         GetComponent<RevivePlayer>().m_LastSavedPosition = player.transform.position;
+    }
+    
+    public void LoadLastPlayerPosition(Vector3 playerPosition)
+    {
+        GetComponent<RevivePlayer>().m_LastSavedPosition = playerPosition;
+        if(GameManager.instance.CheckCurrentScene())
+        {
+            Revive();
+        }
+
     }
 
 

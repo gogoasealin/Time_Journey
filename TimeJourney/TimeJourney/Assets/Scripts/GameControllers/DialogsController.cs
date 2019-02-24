@@ -20,8 +20,6 @@ public class DialogsController : MonoBehaviour
         {
             instance = this;
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
 }
