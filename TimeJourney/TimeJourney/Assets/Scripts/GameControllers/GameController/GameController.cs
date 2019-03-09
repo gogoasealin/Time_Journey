@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class GameController : MonoBehaviour
         {
             Revive();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     public void GameOver()
@@ -57,12 +62,23 @@ public class GameController : MonoBehaviour
 
     public void SaveGame()
     {
-        saveSystemSO.Save();
+        saveSystemSO.m_PlayerPosition = player.transform.position;
+        if (saveSystemSO.m_SceneName.Contains("Easy")) {
+            saveSystemSO.m_SceneName = saveSystemSO.m_SceneName.Replace("Easy", "");
+        }
+        else
+        {
+            saveSystemSO.m_SceneName = saveSystemSO.m_SceneName.Replace("Normal", "");
+        }
     }
 
     public void LoadGame()
     {
-        saveSystemSO.Load();
+        if (!saveSystemSO.m_LoadGame)
+            return;
+        player.transform.position = saveSystemSO.m_PlayerPosition;
+
+        saveSystemSO.m_LoadGame = false;
     }
 
     public void SaveLastPlayerPosition()
