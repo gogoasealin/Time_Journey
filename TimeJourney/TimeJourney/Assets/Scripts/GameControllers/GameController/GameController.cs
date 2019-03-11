@@ -81,16 +81,4 @@ public class GameController : MonoBehaviour
         saveSystemSO.m_LoadGame = false;
     }
 
-    public void SaveLastPlayerPosition()
-    {
-        GetComponent<RevivePlayer>().m_LastSavedPosition = player.transform.position;
-    }
-    
-    public void LoadLastPlayerPosition(Vector3 playerPosition)
-    {
-        GetComponent<RevivePlayer>().m_LastSavedPosition = playerPosition;
-        Revive();
-    }
-
-
 }

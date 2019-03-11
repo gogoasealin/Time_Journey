@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RevivePlayer : MonoBehaviour
 {
-    public Vector3 m_LastSavedPosition;
-
     public void Revive()
     {
         LoadPosition();
@@ -13,8 +11,7 @@ public class RevivePlayer : MonoBehaviour
 
     public void LoadPosition()
     {
-
-        GameController.instance.player.transform.position = m_LastSavedPosition;
+        GameController.instance.player.transform.position = GameController.instance.saveSystemSO.m_PlayerPosition;
         GameController.instance.player.SetActive(true);
     }
 
