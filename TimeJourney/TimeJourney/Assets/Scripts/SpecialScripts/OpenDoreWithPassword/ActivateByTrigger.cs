@@ -21,6 +21,7 @@ public class ActivateByTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Disable();
+            GetComponent<TypePassword>().ResetText();
         }
     }
 

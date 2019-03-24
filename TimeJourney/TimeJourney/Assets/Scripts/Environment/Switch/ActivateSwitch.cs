@@ -14,7 +14,8 @@ public class ActivateSwitch : MonoBehaviour
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        GetComponent<MovePlatform>().m_GoToNextPosition = state;
+        platformToMove.GetComponent<MovePlatform>().m_GoToNextPosition = state;
+        platformToMove.GetComponent<MovePlatform>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -24,6 +25,7 @@ public class ActivateSwitch : MonoBehaviour
             SwitchState();
             platformToMove.GetComponent<MovePlatform>().enabled = true;
             platformToMove.GetComponent<MovePlatform>().m_GoToNextPosition = state;
+            other.gameObject.SetActive(false);
         }
     }
 
@@ -31,8 +33,14 @@ public class ActivateSwitch : MonoBehaviour
     {
         state = !state;
 
-        state = true ? sr.sprite = state1 : sr.sprite = state2;
+        if(sr.sprite == state1)
+        {
+            sr.sprite = state2;
+        }
+        else
+        {
+            sr.sprite = state1;
+        }
     }
-
 
 }

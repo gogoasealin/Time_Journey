@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class TypePassword : MonoBehaviour
 {
-    private string m_CurrentSentence;
     private int m_CurrentLetter;
+    private string m_CurrentSentence;
 
     public TMP_Text m_CurrentSentenceText;
     public string password;
@@ -19,7 +19,7 @@ public class TypePassword : MonoBehaviour
         m_CurrentSentenceText.text = m_CurrentSentence;
     }
 
-    private void ResetText()
+    public void ResetText()
     {
         m_CurrentLetter = 0;
         m_CurrentSentence = "____";
