@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &4148116940770668265
+--- !u!95 &607544463026222361
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6669368114244552503}
+  m_GameObject: {fileID: 5973999548592270279}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ffbd4be2b1697945b910c1a7a55405a, type: 2}
@@ -19,14 +19,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &607544463026222361
+--- !u!95 &4148116940770668265
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5973999548592270279}
+  m_GameObject: {fileID: 6669368114244552503}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ffbd4be2b1697945b910c1a7a55405a, type: 2}
@@ -201,6 +201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireShot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2462606920965882435, guid: d4021ddf868f5e745892ac6e868527c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2462606920965882433, guid: d4021ddf868f5e745892ac6e868527c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -307,6 +312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireShot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462606920965882435, guid: d4021ddf868f5e745892ac6e868527c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462606920965882433, guid: d4021ddf868f5e745892ac6e868527c4,
         type: 3}
@@ -564,6 +574,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462606920965882435, guid: d4021ddf868f5e745892ac6e868527c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462606920965882433, guid: d4021ddf868f5e745892ac6e868527c4,
         type: 3}
