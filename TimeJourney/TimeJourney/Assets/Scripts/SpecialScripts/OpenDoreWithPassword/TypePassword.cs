@@ -4,46 +4,61 @@ using UnityEngine;
 public class TypePassword : MonoBehaviour
 {
     private int m_CurrentLetter;
-    private string m_CurrentSentence;
+    private char[] m_CurrentSentence;
 
-    public TMP_Text m_CurrentSentenceText;
+    public TMP_Text[] m_CurrentSentenceText;
     public string password;
     //public GameObject Door;
 
     private void Start()
     {
+        m_CurrentSentence = new char[m_CurrentSentenceText.Length];
         ResetText();
     }
+
     private void SetText()
     {
-        m_CurrentSentenceText.text = m_CurrentSentence;
+        for(int i = 0; i < m_CurrentSentenceText.Length; i++)
+        {
+            m_CurrentSentenceText[i].text = m_CurrentSentence[i].ToString();
+        }
+    }
+
+    private void ResetCurrentSentence()
+    {
+        for (int i = 0; i < m_CurrentSentence.Length; i++)
+        {
+            m_CurrentSentence[i] = (char) 0;
+        }
     }
 
     public void ResetText()
     {
         m_CurrentLetter = 0;
-        m_CurrentSentence = "____";
+        ResetCurrentSentence();
         SetText();
     }
 
     public void SetNextCharacter(string letter)
     {  
-        char[] ch = m_CurrentSentence.ToCharArray();
-        ch[m_CurrentLetter] = letter.ToCharArray()[0];
-        m_CurrentSentence = new string(ch);
+        m_CurrentSentence[m_CurrentLetter] = letter.ToCharArray()[0];
         SetText();
 
         if (m_CurrentLetter < m_CurrentSentence.Length - 1)
         {
             m_CurrentLetter++;
         }
+        else
+        {
+            CheckValidation();
+        }
     }
 
+    //check if password is corect, if soo open the door else if not reset text
     public void CheckValidation()
     {
-        if (m_CurrentSentence.Equals(password))
+        if (CheckPassword())
         {
-            Debug.Log("open door");
             GetComponent<ActivateByTrigger>().Disable();
             Destroy(GetComponent<ActivateByTrigger>());
             GetComponent<TypePassword>().enabled = false;
@@ -53,5 +68,19 @@ public class TypePassword : MonoBehaviour
         {
             ResetText();
         }
+    }
+
+
+    // check if password is same with curent Sentence
+    public bool CheckPassword()
+    {
+        for(int i = 0; i < password.Length; i++)
+        {
+            if(!password[i].Equals(m_CurrentSentence[i]))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
