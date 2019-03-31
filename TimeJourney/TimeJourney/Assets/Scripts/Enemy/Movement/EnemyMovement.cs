@@ -10,8 +10,15 @@ public class EnemyMovement : MonoBehaviour
     public float[] m_patrolPosition;
     private int nextPosition;
 
-    public Vector3 m_playerPosition;
+    public Vector3 m_playerLastPosition;
+    public Transform m_playerBodyCollider;
     public float movementSpeed;
+    public bool m_checkLastPosition; // say if checked last player position;
+
+    private void Start()
+    {
+        m_playerBodyCollider = GameController.instance.player.transform.GetChild(4).GetChild(0).transform;
+    }
 
     private void Update()
     {
@@ -56,12 +63,17 @@ public class EnemyMovement : MonoBehaviour
         {
             Attack();
         }
+        else if(m_playerInSight && !m_checkLastPosition)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(m_playerBodyCollider.position.x, transform.position.y), movementSpeed * Time.deltaTime);
+        }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(m_playerPosition.x, transform.position.y), movementSpeed * Time.deltaTime);
-            if (transform.position.x == m_playerPosition.x)
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(m_playerLastPosition.x, transform.position.y), movementSpeed * Time.deltaTime);
+            if (Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(m_playerLastPosition.x)) < 0.1f)
             {
-                m_playerPosition = GameController.instance.player.transform.position;
+                m_checkLastPosition = true;
+                m_playerInSight = false;
             }
         }
     }
