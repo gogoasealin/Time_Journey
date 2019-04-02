@@ -14,6 +14,9 @@ public class StoneAttacks : MonoBehaviour
     public GameObject shotsParent; // Parent for the current shots to use, may change for diferent shots
     public GameObject shot; // gameObject to instantiate if we don't have enought 
     private GameObject currentShot;
+    public LayerMask levitationLayerMask;
+    public float levitationSpeed;
+    private bool m_levitationSelect;
 
     private void Start()
     {
@@ -27,6 +30,27 @@ public class StoneAttacks : MonoBehaviour
         {
             FireWeapon(cam.ScreenToWorldPoint(Input.mousePosition));
         }
+    }
+
+    public void StoneLevitation(Vector2 target)
+    {
+        //StartStoneAnimation();
+        Vector2 worldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 1f, levitationLayerMask);
+
+        
+        if (hit.collider != null)
+        {
+            //hit.collider.transform.position = Vector2.MoveTowards(worldPoint, hit.collider.transform.position, levitationSpeed * Time.deltaTime);
+            hit.collider.transform.position = worldPoint;
+            //trb facut kinematic daca vrem sa luam si enemy :D 
+            //if(hit.collider.GetComponent<Rigidbody2D>() != null)
+            //{
+            //    hit.collider.GetComponent<Rigidbody2D>().isKinematic = true;
+            //}
+        }
+
+        //StopStoneAnimation();
     }
 
     public void StoneAttack(Vector2 target)

@@ -24,7 +24,6 @@ public class SwordAttacks : MonoBehaviour
         {
             SwordAttack();
         }
-       
     }
 
     //void OnDrawGizmosSelected()

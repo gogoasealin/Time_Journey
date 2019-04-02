@@ -23,15 +23,23 @@ public class StoneChanger : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
+            StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
             ChangeStone("Fire");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
             ChangeStone("Ice");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
             ChangeStone("Light");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            StoneAttacks.FireWeapon = StoneAttacks.StoneLevitation;
+            SetPS("Levitation");
         }
     }
 

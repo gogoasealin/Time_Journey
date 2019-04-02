@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        m_playerBodyCollider = GameController.instance.player.transform.GetChild(4).GetChild(0).transform;
+        m_playerBodyCollider = GameController.instance.player.transform.GetChild(5).GetChild(0).transform;
     }
 
     private void Update()
