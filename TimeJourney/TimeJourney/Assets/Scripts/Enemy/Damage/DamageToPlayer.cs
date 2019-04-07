@@ -19,6 +19,7 @@ public class DamageToPlayer : MonoBehaviour
                 
                 //if(other.transform.position.x > transform.position.x)
                 //{
+                /// disalbe charracter controller
                 //    other.gameObject.GetComponent<CharacterController2D>().Move(1000f * Time.fixedDeltaTime, false);
                 //    other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 10000f, ForceMode2D.Impulse);
                 //}else

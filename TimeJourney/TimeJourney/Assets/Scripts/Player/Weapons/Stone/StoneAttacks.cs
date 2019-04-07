@@ -3,6 +3,21 @@ using UnityEngine;
 
 public class StoneAttacks : MonoBehaviour
 {
+    public static StoneAttacks instance;
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
+
     public Action<Vector2> FireWeapon = delegate { };
     private PlayerMovementWithSword pmws;
 
@@ -15,8 +30,7 @@ public class StoneAttacks : MonoBehaviour
     public GameObject shot; // gameObject to instantiate if we don't have enought 
     private GameObject currentShot;
     public LayerMask levitationLayerMask;
-    public float levitationSpeed;
-    private bool m_levitationSelect;
+
 
     private void Start()
     {
@@ -34,23 +48,17 @@ public class StoneAttacks : MonoBehaviour
 
     public void StoneLevitation(Vector2 target)
     {
-        //StartStoneAnimation();
+        StoneAnimation();
         Vector2 worldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        
+
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 1f, levitationLayerMask);
 
         
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.gameObject.GetComponent<PickUp>())
         {
-            //hit.collider.transform.position = Vector2.MoveTowards(worldPoint, hit.collider.transform.position, levitationSpeed * Time.deltaTime);
-            hit.collider.transform.position = worldPoint;
-            //trb facut kinematic daca vrem sa luam si enemy :D 
-            //if(hit.collider.GetComponent<Rigidbody2D>() != null)
-            //{
-            //    hit.collider.GetComponent<Rigidbody2D>().isKinematic = true;
-            //}
+            hit.collider.gameObject.GetComponent<PickUp>().enabled = true;
         }
-
-        //StopStoneAnimation();
     }
 
     public void StoneAttack(Vector2 target)

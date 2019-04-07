@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int m_maxHp;
-    public int m_CurrentHealth;
+    private int m_CurrentHealth;
 
     public bool m_hasDamageAnimation = true;
     [HideInInspector]public Animator m_animator;

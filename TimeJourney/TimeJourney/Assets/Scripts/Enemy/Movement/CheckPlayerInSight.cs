@@ -5,7 +5,6 @@ using UnityEngine;
 public class CheckPlayerInSight : MonoBehaviour
 {
     private EnemyMovement em;
-    public bool inSight;
 
     private void Start()
     {
@@ -16,13 +15,12 @@ public class CheckPlayerInSight : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            em.m_checkLastPosition = false;
-            em.m_playerInSight = true;
+            em.PlayerInSight();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        em.m_playerInSight = false;
+        em.PlayerOutOfSight();
     }
 }
