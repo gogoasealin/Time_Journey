@@ -42,6 +42,8 @@ public class StoneAttacks : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && pmws.canAttack)
         {
+
+            Debug.Log("Attack");
             FireWeapon(cam.ScreenToWorldPoint(Input.mousePosition));
         }
     }
@@ -63,8 +65,10 @@ public class StoneAttacks : MonoBehaviour
 
     public void StoneAttack(Vector2 target)
     {
+        Debug.Log("Stone attack");
         StoneAnimation();
         currentShot = GetNextShot();
+        Debug.Log(currentShot.name);
         StoneInstantiate(currentShot, shotPosition.position, target);
     }
 

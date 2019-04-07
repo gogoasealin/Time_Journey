@@ -9,6 +9,8 @@ public class ShotCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        Debug.Log("Collision" + other.name);
         if (other.tag.Equals("BackGround"))
         {
             gameObject.SetActive(false);
