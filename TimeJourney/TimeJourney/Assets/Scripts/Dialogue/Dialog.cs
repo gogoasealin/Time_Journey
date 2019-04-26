@@ -24,7 +24,7 @@ public class Dialog : MonoBehaviour
     {
         if(DialogsController.instance.textDisplay.text == sentencces[index])
         {
-            if(Input.GetKeyDown(KeyCode.Space))//Input.anyKeyDown
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))//Input.anyKeyDown
             {
                 NextSentence();
             }
