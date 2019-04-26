@@ -83,7 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7589f1c6db3331444a6b8a1646647d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDisplay: {fileID: 0}
   sentencces:
   - 'Eu: linia 1'
   - 'Gabi : linia 2'
@@ -91,6 +90,4 @@ MonoBehaviour:
   - 'Gabi: linia 4'
   - 'Eu : Linia 5'
   index: 0
-  typingSpeed: 0.02
-  textDisplayAnim: {fileID: 0}
-  textBackGround: {fileID: 0}
+  typingSpeed: 0.01

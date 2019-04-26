@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour
 {
     public string m_NextSceneName;
     public SaveSystemSO saveSystemSO;
+    public GameObject fade;
 
     private bool onTrigger;
 
@@ -41,6 +42,14 @@ public class Portal : MonoBehaviour
     }
     public void ChangeScene()
     {
-        SceneManager.LoadScene(m_NextSceneName);
+        StartCoroutine(LoadScene(m_NextSceneName));
+    }
+
+    IEnumerator LoadScene(string Level)
+    {
+        fade.SetActive(true);
+        fade.GetComponent<Animator>().SetTrigger("end");
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene(Level);
     }
 }
