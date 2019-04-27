@@ -8,6 +8,7 @@ TagManager:
   - BackGround
   - Shot
   - Breakable
+  - Log
   layers:
   - Default
   - TransparentFX
