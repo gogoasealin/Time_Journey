@@ -10,6 +10,7 @@ public class SwithSwordAttack : StateMachineBehaviour
         if(stateInfo.normalizedTime <= 0.4f && animator.GetFloat("Speed") > 0.1f)
         {
             animator.SetTrigger("SwitchSwordAttack");
+            GameController.instance.swordLogic.GetComponent<SwordAttacks>().SwordDamage();
         }
     }
 }

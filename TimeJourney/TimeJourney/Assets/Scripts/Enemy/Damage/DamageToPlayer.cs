@@ -4,35 +4,36 @@ using UnityEngine;
 
 public class DamageToPlayer : MonoBehaviour
 {
-    public int m_enemyDamageAmount;
-    private bool dmg; // check if should apply next dmg to player 
-    
+    public int m_enemyDamageAmount = 40;
+    public float m_delayBetweenAttacks = 0.5f;
+    private bool dmg; // check if should apply next dmg to player
+
+    private IEnumerator damageToPlayer;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            if (!dmg)
-            {
-                other.gameObject.GetComponent<PlayerHealth>().GetDamage(m_enemyDamageAmount);
-                dmg = true;
-                Invoke("NextDmg", 1f);
-                
-                //if(other.transform.position.x > transform.position.x)
-                //{
-                /// disalbe charracter controller
-                //    other.gameObject.GetComponent<CharacterController2D>().Move(1000f * Time.fixedDeltaTime, false);
-                //    other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 10000f, ForceMode2D.Impulse);
-                //}else
-                //{
-                //    other.gameObject.GetComponent<CharacterController2D>().Move(-1000f * Time.fixedDeltaTime, false);
-                //    other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 10000f, ForceMode2D.Impulse);
-                //}
-            }
+            damageToPlayer = DamageAnimation();
+            StartCoroutine(damageToPlayer);
         }
     }
 
-    public void NextDmg()
+    public IEnumerator DamageAnimation()
     {
-        dmg = !dmg;
+        while (true)
+        {
+            GameController.instance.player.GetComponent<PlayerHealth>().GetDamage(m_enemyDamageAmount);
+            yield return new WaitForSeconds(m_delayBetweenAttacks);
+        }
     }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StopCoroutine(damageToPlayer);
+        }
+    }
+
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,8 +8,13 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
     public GameObject player;
+    public GameObject swordLogic;
     public SaveSystemSO saveSystemSO;
     private bool m_death;
+
+
+    public Action SpecialAction = delegate { };
+
 
     // Menu
     GameObject m_Menu;
@@ -57,7 +63,7 @@ public class GameController : MonoBehaviour
         GetComponent<RevivePlayer>().Revive();
         m_death = false;
         Time.timeScale = 1;
-
+        player.GetComponent<PlayerHealth>().SetHealth();
     }
 
     public void SaveGame()
@@ -81,4 +87,8 @@ public class GameController : MonoBehaviour
         saveSystemSO.m_LoadGame = false;
     }
 
+    public void DoSpecialAction()
+    {
+        SpecialAction();
+    }
 }

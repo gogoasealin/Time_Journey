@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2c6a145207a8a4092785c58ff903e1, type: 3}
   m_Name: SaveSystemSO
   m_EditorClassIdentifier: 
-  m_PlayerPosition: {x: 3.5317721, y: 1.7949957, z: 0}
-  m_SceneName: Level1
+  m_PlayerPosition: {x: 0, y: 0, z: 0}
+  m_SceneName: IntroCity
   m_Difficulty: Normal
   m_LoadGame: 0

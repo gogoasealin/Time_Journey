@@ -9,6 +9,13 @@ public class PlayerHealth : MonoBehaviour
     public float m_maxHp;
 
     [HideInInspector] public Animator m_animator;
+    private IEnumerator damageAnimation;
+
+    public SpriteRenderer[] bodyParts;
+    public BoxCollider2D bodyCollider;
+
+    private bool damageReceived;
+
 
     [SerializeField]private float m_currentHealth;
     public float m_CurrentHealth
@@ -16,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         get { return m_currentHealth; }
         set {
             m_currentHealth = value;
-            SetHealth(m_currentHealth);  
+            SetHealth();  
         }
     }
 
@@ -28,6 +35,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void GetDamage(int dmgAmount)
     {
+        if (damageReceived)
+        {
+            return;
+        }
+        damageReceived = true;
         m_CurrentHealth -= dmgAmount;
         if (m_CurrentHealth <= 0)
         {
@@ -38,33 +50,48 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
+
+    public void GetDamageAnimation()
+    {
+        damageAnimation = DamageAnimation();
+        StartCoroutine(damageAnimation);
+    }
+
+    public IEnumerator DamageAnimation()
+    {
+        for (int i = 0; i < 12; i++)
+        {
+            for (int j = 0; j < bodyParts.Length; j++)
+            {
+                bodyParts[j].enabled = !bodyParts[j].enabled;
+            }
+            yield return new WaitForSeconds(.1f);
+        }
+        GetComponent<PlayerRegeneration>().m_DamageReceive = true;
+        //bodyCollider.enabled = true;
+        damageReceived = false;
+    }
+
+
     public void Die()
     {
-        Debug.Log("i die like this");
         TriggerDeathAnimation();
         Death();
     }
 
-    public void GetDamageAnimation()
-    {
-        Debug.Log("GetDamageAnimation");
-        //dmgAnimation;
-        GetComponent<PlayerRegeneration>().m_DamageReceive = true;
-    }
-
     public void TriggerDeathAnimation()
     {
-        Debug.Log("player death animation");
-        //m_animator.SetTrigger("Die");
+        m_animator.SetFloat("Speed", 0);
+        m_animator.SetBool("IsAttacking", false);
+        m_animator.SetBool("IsGrounded", true);
     }
 
     public void Death() // called after death animation;
     {
-        gameObject.SetActive(false);
         GameController.instance.GameOver();
     }
 
-    public void SetHealth(float currentHP)
+    public void SetHealth()
     {
         float currentHPLost = (m_maxHp - m_currentHealth) / 100;
         m_HurtImage.color = new Color (1,0,0, currentHPLost);

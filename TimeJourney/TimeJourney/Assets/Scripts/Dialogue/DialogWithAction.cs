@@ -5,15 +5,14 @@ using TMPro;
 using UnityEngine.AI;
 using System;
 
-public class Dialog : MonoBehaviour
+public class DialogWithAction : MonoBehaviour
 {
     public string[] dialogSentence;
-    public string[] moreDialogSentences;
+    public string[] nextDialogSentences;
     public int index;
     public float typingSpeed = 0.015f;
     private IEnumerator type;
-    public bool destroyDialog;
-    private bool moreDialog;
+    public int endedDialog;
 
     void OnEnable()
     {
@@ -56,18 +55,25 @@ public class Dialog : MonoBehaviour
         }
         else
         {
-            MoreDialogSentences();
-            moreDialog = true;
+            NextDialogSentences();
+            endedDialog += 1;
+            if (endedDialog >= 2)
+            {
+                GameController.instance.DoSpecialAction();
+                Destroy(gameObject);
+            }
+
         }
     }
 
-    public void MoreDialogSentences()
+    public void NextDialogSentences()
     {
-        if (moreDialogSentences.Length > 0)
+        if (nextDialogSentences.Length > 0)
         {
-            Array.Resize(ref dialogSentence, moreDialogSentences.Length);
-            moreDialogSentences.CopyTo(dialogSentence, 0);
+            Array.Resize(ref dialogSentence, nextDialogSentences.Length);
+            nextDialogSentences.CopyTo(dialogSentence, 0);
         }
+
         EndDialog();
     }
 
@@ -78,10 +84,7 @@ public class Dialog : MonoBehaviour
         DialogsController.instance.textDisplay.text = "";
         DialogsController.instance.textDisplay.gameObject.SetActive(false);
         DialogsController.instance.textBackGround.SetActive(false);
-        if (moreDialog && destroyDialog)
-        {
-            Destroy(GetComponent<Dialog>());
-        }
-        GetComponent<Dialog>().enabled = false;
+        enabled = false;
+
     }
 }

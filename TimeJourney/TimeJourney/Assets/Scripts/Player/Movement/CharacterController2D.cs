@@ -86,6 +86,5 @@ public class CharacterController2D : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
         transform.Rotate(0f, 180f, 0f);
         transform.position += new Vector3(moveDistantion, 0, 0);
-
 	}
 }

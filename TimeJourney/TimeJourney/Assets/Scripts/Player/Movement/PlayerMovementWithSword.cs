@@ -11,6 +11,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
     private bool jump = false;
 
     public bool canAttack; // stop spaming attacks
+    public StoneAttacks stoneAttacks;
 
     private void Start()
     {
@@ -59,5 +60,10 @@ public class PlayerMovementWithSword : MonoBehaviour {
     public void EnableAttack()
     {
         canAttack = true;
+    }
+
+    public void Shot()
+    {
+        stoneAttacks.Shot();
     }
 }

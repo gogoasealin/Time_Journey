@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6969170114110163835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6969170114110163839}
+  - component: {fileID: 6969170114110163832}
+  - component: {fileID: 6969170114110163834}
+  - component: {fileID: 6969170112757639711}
+  m_Layer: 0
+  m_Name: DialogWithAction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6969170114110163839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969170114110163835}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.35, y: 1.07, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6969170114110163832
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969170114110163835}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3, y: -0.4}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.34, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &6969170114110163834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969170114110163835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c823f8d19f1484491bcc6ef61622c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6969170112757639711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969170114110163835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3317137b5e55dc043ad621d07ab5251f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogSentence:
+  - 'Old Man: Hello, young man! Now that attire is unusual! '
+  - 'Old Man: Are you not from these places? '
+  - 'You: Where am I? Who are you? Why am I in a forest? '
+  - 'Old Man: You''re in Dryadia. The realm ruled by the Wizard King, Tholius. '
+  - 'You: King? What have I done.. Traveled back in time.. Haha.. What year is this? '
+  - 'Old Man: The Wizard King controls all sorts of things, time included. It''s year
+    1130. Some sort of portal might have brought you to this era. '
+  - 'Old Man: To get back, you''ll have to use the magical Time Stone, there''s only
+    one in the entire world, and is owned by the Wizard King. '
+  - 'Old Man: Here, take this sword and magical Fire Stone to help you get past the
+    creatures in this world. '
+  - 'You: This is mad! You are mad! I''m getting out of here!'
+  moreDialogSentences:
+  - test
+  index: 0
+  typingSpeed: 0.015
+  destroyDialog: 0

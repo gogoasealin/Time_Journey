@@ -7,18 +7,6 @@ public class WoodlogHealth : Health
     public GameObject watermapBlocked;
     public GameObject watermapFree;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void GetDamage(int dmgAmount)
     {
         watermapBlocked.SetActive(false);

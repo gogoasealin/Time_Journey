@@ -7,14 +7,16 @@ public class EnemyNormalMovement : EnemyMovement
 
     public float[] m_patrolPosition;
 
-    private int nextPosition;
+    [SerializeField]private int nextPosition;
     private Vector3 m_playerLastPosition;
     private Transform m_playerBodyCollider;
     private bool m_checkLastPosition; // say if checked last player position;
+    public bool m_FacingRight;  // direction currently facing.
 
     private void Start()
     {
         m_playerBodyCollider = GameController.instance.player.transform.GetChild(5).GetChild(0).transform;
+        CheckFlip();
     }
 
     private void Update()
@@ -42,6 +44,35 @@ public class EnemyNormalMovement : EnemyMovement
             {
                 nextPosition = 0;
             }
+            CheckFlip();
+        }
+
+    }
+
+    protected virtual void CheckFlip()
+    {
+        if (transform.localPosition.x > m_patrolPosition[nextPosition] && m_FacingRight)
+        {
+            Flip();
+        }
+        else if (transform.localPosition.x < m_patrolPosition[nextPosition] && !m_FacingRight)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        m_FacingRight = !m_FacingRight;
+
+        if (m_FacingRight)
+        {
+            GetComponentInChildren<ParticleSystemRenderer>().flip = new Vector3(180f, 0, 0);
+        }
+        else
+        {
+            GetComponentInChildren<ParticleSystemRenderer>().flip = Vector3.zero;
+
         }
     }
 
@@ -70,6 +101,8 @@ public class EnemyNormalMovement : EnemyMovement
             }
         }
     }
+
+
 
     public override void PlayerInSight()
     {

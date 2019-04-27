@@ -30,6 +30,7 @@ public class StoneAttacks : MonoBehaviour
     public GameObject shot; // gameObject to instantiate if we don't have enought 
     private GameObject currentShot;
     public LayerMask levitationLayerMask;
+    private Vector3 nextFireTarget;
 
 
     private void Start()
@@ -41,9 +42,7 @@ public class StoneAttacks : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(1) && pmws.canAttack)
-        {
-
-            Debug.Log("Attack");
+        { 
             FireWeapon(cam.ScreenToWorldPoint(Input.mousePosition));
         }
     }
@@ -53,7 +52,6 @@ public class StoneAttacks : MonoBehaviour
         StoneAnimation();
         Vector2 worldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
         
-
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 1f, levitationLayerMask);
 
         
@@ -65,11 +63,14 @@ public class StoneAttacks : MonoBehaviour
 
     public void StoneAttack(Vector2 target)
     {
-        Debug.Log("Stone attack");
         StoneAnimation();
+        nextFireTarget = target;
+    }
+
+    public void Shot()
+    {
         currentShot = GetNextShot();
-        Debug.Log(currentShot.name);
-        StoneInstantiate(currentShot, shotPosition.position, target);
+        StoneInstantiate(currentShot, shotPosition.position, nextFireTarget);
     }
 
     public void StoneAnimation()
