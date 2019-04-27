@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.AI;
+using System;
 
 public class Dialog : MonoBehaviour
 {
-    public string[] sentencces;
+    public string[] dialogSentence;
+    public string[] moreDialogSentences;
     public int index;
     public float typingSpeed = 0.02f;
     private IEnumerator type;
-
+    public bool destroyDialog;
+    private bool moreDialog;
 
     void OnEnable()
     {
         DialogsController.instance.textBackGround.SetActive(true);
+        DialogsController.instance.textDisplay.gameObject.SetActive(true);
         type = Type();
         StartCoroutine(type);
     }
@@ -22,9 +26,9 @@ public class Dialog : MonoBehaviour
 
     private void Update()
     {
-        if(DialogsController.instance.textDisplay.text == sentencces[index])
+        if (DialogsController.instance.textDisplay.text == dialogSentence[index])
         {
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))//Input.anyKeyDown
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))//Input.anyKeyDown
             {
                 NextSentence();
             }
@@ -33,8 +37,7 @@ public class Dialog : MonoBehaviour
 
     public IEnumerator Type()
     {
-        //textDisplay.text = gameObject.name + " : ";
-        foreach (char letter in sentencces[index].ToCharArray())
+        foreach (char letter in dialogSentence[index].ToCharArray())
         {
             DialogsController.instance.textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
@@ -44,7 +47,7 @@ public class Dialog : MonoBehaviour
     public void NextSentence()
     {
         DialogsController.instance.textDisplayAnim.SetTrigger("Change");
-        if (index < sentencces.Length - 1)
+        if (index < dialogSentence.Length - 1)
         {
             index++;
             DialogsController.instance.textDisplay.text = "";
@@ -53,8 +56,19 @@ public class Dialog : MonoBehaviour
         }
         else
         {
-            EndDialog();
+            MoreDialogSentences();
+            moreDialog = true;
         }
+    }
+
+    public void MoreDialogSentences()
+    {
+        if (moreDialogSentences.Length > 0)
+        {
+            Array.Resize(ref dialogSentence, moreDialogSentences.Length);
+            moreDialogSentences.CopyTo(dialogSentence, 0);
+        }
+        EndDialog();
     }
 
     public void EndDialog()
@@ -62,7 +76,12 @@ public class Dialog : MonoBehaviour
         index = 0;
         StopCoroutine(type);
         DialogsController.instance.textDisplay.text = "";
+        DialogsController.instance.textDisplay.gameObject.SetActive(false);
         DialogsController.instance.textBackGround.SetActive(false);
+        if (moreDialog && destroyDialog)
+        {
+            Destroy(gameObject);
+        }
         GetComponent<Dialog>().enabled = false;
     }
 }
