@@ -13,10 +13,24 @@ public class EnemyNormalMovement : EnemyMovement
     private bool m_checkLastPosition; // say if checked last player position;
     public bool m_FacingRight;  // direction currently facing.
 
+    private bool enterStateChase;
+    private bool enterStatePatrol;
+
+
     private void Start()
     {
         m_playerBodyCollider = GameController.instance.player.transform.GetChild(5).GetChild(0).transform;
+        if(GetComponentInChildren<ParticleSystemRenderer>().flip.x == 0)
+        {
+            m_FacingRight = false;
+        }
+        else
+        {
+            m_FacingRight = true;
+        }
         CheckPatrolFlip();
+        enterStatePatrol = true;
+        enterStateChase = false;
     }
 
     private void Update()
@@ -33,6 +47,12 @@ public class EnemyNormalMovement : EnemyMovement
 
     protected override void Patrol()
     {
+        if (enterStatePatrol)
+        {
+            CheckPatrolFlip();
+            enterStatePatrol = false;
+            enterStateChase = true;
+        }
         if (CalculateDistance())
         {
             transform.localPosition = Vector2.MoveTowards(transform.localPosition, new Vector2(m_patrolPosition[nextPosition], transform.localPosition.y), m_movementSpeed * Time.deltaTime);
@@ -44,9 +64,8 @@ public class EnemyNormalMovement : EnemyMovement
             {
                 nextPosition = 0;
             }
+            CheckPatrolFlip();
         }
-        CheckPatrolFlip();
-
     }
 
     protected virtual void CheckPatrolFlip()
@@ -61,44 +80,14 @@ public class EnemyNormalMovement : EnemyMovement
         }
     }
 
-    protected virtual void CheckChasingFlip()
-    {
-        if (transform.localPosition.x > m_playerBodyCollider.position.x && m_FacingRight)
-        {
-            Flip();
-        }
-        else if (transform.localPosition.x < m_playerBodyCollider.position.x && !m_FacingRight)
-        {
-            Flip();
-        }
-    }
-
-    private void Flip()
-    {
-        m_FacingRight = !m_FacingRight;
-
-        if (m_FacingRight)
-        {
-            GetComponentInChildren<ParticleSystemRenderer>().flip = new Vector3(180f, 0, 0);
-        }
-        else
-        {
-            GetComponentInChildren<ParticleSystemRenderer>().flip = Vector3.zero;
-
-        }
-    }
-
-    protected virtual bool CalculateDistance()
-    {
-        if (transform.localPosition.x == m_patrolPosition[nextPosition])
-        {
-            return false;
-        }
-        return true;
-    }
-
     protected override void ChasePlayer()
     {
+        if (enterStateChase)
+        {
+            CheckChasingFlip();
+            enterStateChase = false;
+            enterStatePatrol = true;
+        }
         if (m_playerInSight && !m_checkLastPosition)
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(m_playerBodyCollider.position.x, transform.position.y), m_movementSpeed * Time.deltaTime);
@@ -110,9 +99,43 @@ public class EnemyNormalMovement : EnemyMovement
             {
                 m_checkLastPosition = true;
                 m_playerInSight = false;
+                CheckChasingFlip();
             }
         }
-        CheckChasingFlip();
+    }
+
+    protected virtual void CheckChasingFlip()
+    {
+        if (transform.position.x > m_playerBodyCollider.position.x && m_FacingRight)
+        {
+            Flip();
+        }
+        else if (transform.position.x < m_playerBodyCollider.position.x && !m_FacingRight)
+        {
+            Flip();
+        }
+    }
+
+    protected override void Flip()
+    {
+        if (m_FacingRight)
+        {
+            GetComponentInChildren<ParticleSystemRenderer>().flip = Vector3.zero;
+        }
+        else
+        {
+            GetComponentInChildren<ParticleSystemRenderer>().flip = new Vector3(180f, 0, 0);
+        }
+        m_FacingRight = !m_FacingRight;
+    }
+
+    protected virtual bool CalculateDistance()
+    {
+        if (transform.localPosition.x == m_patrolPosition[nextPosition])
+        {
+            return false;
+        }
+        return true;
     }
 
 

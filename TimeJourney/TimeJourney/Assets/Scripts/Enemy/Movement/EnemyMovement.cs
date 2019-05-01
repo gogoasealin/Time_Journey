@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     protected virtual void Patrol() {; }
     protected virtual void ChasePlayer(){; }
     protected virtual void Attack(){; }
+    protected virtual void Flip() {; }
     public virtual void PlayerInSight() {; }
     public virtual void PlayerOutOfSight() {; }
 
