@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float runSpeed = 30f;
     public bool m_FacingRight;  // For determining which way the player is currently facing.
+    public bool canMoveLeft = false;
 
     float horizontalMove = 0f;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
@@ -18,8 +19,12 @@ public class PlayerMovement : MonoBehaviour {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (horizontalMove < 0 && !canMoveLeft)
+        {
+           horizontalMove = 0;    
+        }
 
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
     }
 
     void FixedUpdate()

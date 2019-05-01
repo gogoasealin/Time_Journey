@@ -16,18 +16,18 @@ public class LookAheadDown : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S))
         {
-            if (cvc.m_ScreenY > 0.5)
+            if (cvc.m_ScreenY > 0.2f)
             {
                 cvc.m_ScreenY -= 0.01f;
             }
         }
-        else if (cvc.m_ScreenY < 0.8)
+        else if (cvc.m_ScreenY < 0.5f)
         {
             cvc.m_ScreenY += 0.01f;
         }
         else
         {
-            cvc.m_ScreenY = 0.8f;
+            cvc.m_ScreenY = 0.5f;
         }
     }
 }

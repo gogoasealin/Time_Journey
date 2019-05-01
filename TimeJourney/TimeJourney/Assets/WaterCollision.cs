@@ -20,7 +20,7 @@ public class WaterCollision : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            other.GetComponent<Health>().GetDamage(1000);
+            other.GetComponent<Health>().GetDamage(10000);
         }
     }
 }
