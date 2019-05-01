@@ -12,7 +12,6 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator damageAnimation;
 
     public SpriteRenderer[] bodyParts;
-    public BoxCollider2D bodyCollider;
 
     private bool damageReceived;
 
@@ -68,7 +67,6 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
         GetComponent<PlayerRegeneration>().m_DamageReceive = true;
-        //bodyCollider.enabled = true;
         damageReceived = false;
     }
 

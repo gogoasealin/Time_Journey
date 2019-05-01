@@ -11,6 +11,7 @@ public class PlayerMovementWithSword : MonoBehaviour {
     private bool jump = false;
 
     public bool canAttack; // stop spaming attacks
+    [Tooltip("The script for StoneAttack from stone logic")]
     public StoneAttacks stoneAttacks;
 
     private void Start()
