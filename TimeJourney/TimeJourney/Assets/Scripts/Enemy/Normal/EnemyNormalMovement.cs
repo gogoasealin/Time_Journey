@@ -16,7 +16,7 @@ public class EnemyNormalMovement : EnemyMovement
     private void Start()
     {
         m_playerBodyCollider = GameController.instance.player.transform.GetChild(5).GetChild(0).transform;
-        CheckFlip();
+        CheckPatrolFlip();
     }
 
     private void Update()
@@ -44,18 +44,30 @@ public class EnemyNormalMovement : EnemyMovement
             {
                 nextPosition = 0;
             }
-            CheckFlip();
         }
+        CheckPatrolFlip();
 
     }
 
-    protected virtual void CheckFlip()
+    protected virtual void CheckPatrolFlip()
     {
         if (transform.localPosition.x > m_patrolPosition[nextPosition] && m_FacingRight)
         {
             Flip();
         }
         else if (transform.localPosition.x < m_patrolPosition[nextPosition] && !m_FacingRight)
+        {
+            Flip();
+        }
+    }
+
+    protected virtual void CheckChasingFlip()
+    {
+        if (transform.localPosition.x > m_playerBodyCollider.position.x && m_FacingRight)
+        {
+            Flip();
+        }
+        else if (transform.localPosition.x < m_playerBodyCollider.position.x && !m_FacingRight)
         {
             Flip();
         }
@@ -100,6 +112,7 @@ public class EnemyNormalMovement : EnemyMovement
                 m_playerInSight = false;
             }
         }
+        CheckChasingFlip();
     }
 
 
