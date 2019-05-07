@@ -40,6 +40,6 @@ public class SwitchNewPlayer : MonoBehaviour
         Destroy(simplePlayerObject);
 
         Destroy(enemy);
-        Instantiate(enemyToInstantiate, enemyToInstantiateposition, Quaternion.identity);
+        //Instantiate(enemyToInstantiate, enemyToInstantiateposition, Quaternion.identity);
     }
 }

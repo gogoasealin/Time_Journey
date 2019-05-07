@@ -30,7 +30,7 @@ public class StoneAttacks : MonoBehaviour
     public GameObject shot; // gameObject to instantiate if we don't have enought 
     private GameObject currentShot;
     public LayerMask levitationLayerMask;
-    private Vector3 nextFireTarget;
+    public Vector3 nextFireTarget;
 
 
     private void Start()
