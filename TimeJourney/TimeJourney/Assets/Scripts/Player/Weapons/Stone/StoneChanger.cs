@@ -36,11 +36,6 @@ public class StoneChanger : MonoBehaviour
             StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
             ChangeStone("Light");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            StoneAttacks.FireWeapon = StoneAttacks.StoneLevitation;
-            SetPS("Levitation");
-        }
     }
 
     public void ChangeStone(string name)

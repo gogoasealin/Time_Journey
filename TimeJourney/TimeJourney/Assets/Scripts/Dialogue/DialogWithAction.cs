@@ -12,7 +12,9 @@ public class DialogWithAction : MonoBehaviour
     public int index;
     public float typingSpeed = 0.015f;
     private IEnumerator type;
-    public int endedDialog;
+    public int endedDialogCount; // 
+    private bool nextLine;
+    public bool dialogEnded;
 
     void OnEnable()
     {
@@ -27,8 +29,9 @@ public class DialogWithAction : MonoBehaviour
     {
         if (DialogsController.instance.textDisplay.text == dialogSentence[index])
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))//Input.anyKeyDown
+            if ((Input.GetKeyDown(KeyCode.Space) && nextLine) || (Input.GetKeyDown(KeyCode.E) && nextLine))//Input.anyKeyDown
             {
+                nextLine = false;
                 NextSentence();
             }
         }
@@ -41,11 +44,11 @@ public class DialogWithAction : MonoBehaviour
             DialogsController.instance.textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+        nextLine = true;
     }
 
     public void NextSentence()
     {
-        DialogsController.instance.textDisplayAnim.SetTrigger("Change");
         if (index < dialogSentence.Length - 1)
         {
             index++;
@@ -56,13 +59,6 @@ public class DialogWithAction : MonoBehaviour
         else
         {
             NextDialogSentences();
-            endedDialog += 1;
-            if (endedDialog >= 2)
-            {
-                GameController.instance.DoSpecialAction();
-                Destroy(gameObject);
-            }
-
         }
     }
 
@@ -73,7 +69,7 @@ public class DialogWithAction : MonoBehaviour
             Array.Resize(ref dialogSentence, nextDialogSentences.Length);
             nextDialogSentences.CopyTo(dialogSentence, 0);
         }
-
+        dialogEnded = true;
         EndDialog();
     }
 
@@ -84,7 +80,25 @@ public class DialogWithAction : MonoBehaviour
         DialogsController.instance.textDisplay.text = "";
         DialogsController.instance.textDisplay.gameObject.SetActive(false);
         DialogsController.instance.textBackGround.SetActive(false);
+        endedDialogCount += 1;
+        if (endedDialogCount >= 2)
+        {
+            GameController.instance.DoSpecialAction();
+            Destroy(gameObject);
+            return;
+        }
         enabled = false;
+    }
 
+    public void CheckDialogStatus()
+    {
+        if(!dialogEnded)
+        {
+            NextDialogSentences();
+        }
+        else
+        {
+
+        }
     }
 }

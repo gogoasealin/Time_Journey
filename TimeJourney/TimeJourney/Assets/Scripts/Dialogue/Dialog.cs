@@ -46,7 +46,6 @@ public class Dialog : MonoBehaviour
 
     public void NextSentence()
     {
-        DialogsController.instance.textDisplayAnim.SetTrigger("Change");
         if (index < dialogSentence.Length - 1)
         {
             index++;
@@ -80,8 +79,20 @@ public class Dialog : MonoBehaviour
         DialogsController.instance.textBackGround.SetActive(false);
         if (moreDialog && destroyDialog)
         {
-            Destroy(GetComponent<Dialog>());
+            Destroy(gameObject);
         }
         GetComponent<Dialog>().enabled = false;
+    }
+
+    public void CheckDialogStatus()
+    {
+        if (destroyDialog)
+        {
+            StopCoroutine(type);
+            DialogsController.instance.textDisplay.text = "";
+            DialogsController.instance.textDisplay.gameObject.SetActive(false);
+            DialogsController.instance.textBackGround.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 }

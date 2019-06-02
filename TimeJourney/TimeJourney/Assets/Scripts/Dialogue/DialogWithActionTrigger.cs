@@ -13,17 +13,24 @@ public class DialogWithActionTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && dialog != null)
+        if (other is BoxCollider2D)
         {
-            dialog.enabled = true;
+            if (other.CompareTag("Player") && dialog != null)
+            {
+                dialog.enabled = true;
+                dialog.dialogEnded = false;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && dialog != null)
+        if (other is BoxCollider2D)
         {
-            dialog.EndDialog();
+            if (other.CompareTag("Player") && dialog != null)
+            {
+                dialog.CheckDialogStatus();
+            }
         }
     }
 }

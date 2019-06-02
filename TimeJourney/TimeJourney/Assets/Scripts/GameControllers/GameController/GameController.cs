@@ -44,6 +44,47 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
         }
+        if(Input.GetKeyDown("[1]"))
+        {
+            SceneManager.LoadScene("Level1Easy");
+        }
+        if (Input.GetKeyDown("[2]"))
+        {
+            SceneManager.LoadScene("Level2Easy");
+        }
+        if (Input.GetKeyDown("[3]"))
+        {
+            SceneManager.LoadScene("Level3Easy");
+        }
+        if (Input.GetKeyDown("[4]"))
+        {
+            SceneManager.LoadScene("Level4Easy");
+        }
+        if (Input.GetKeyDown("[5]"))
+        {
+            SceneManager.LoadScene("Level5Easy");
+        }
+        if (Input.GetKeyDown("[6]"))
+        {
+            SceneManager.LoadScene("Level1Normal");
+        }
+        if (Input.GetKeyDown("[7]"))
+        {
+            SceneManager.LoadScene("Level2Normal");
+        }
+        if (Input.GetKeyDown("[8]"))
+        {
+            SceneManager.LoadScene("Level3Normal");
+        }
+        if (Input.GetKeyDown("[9]"))
+        {
+            SceneManager.LoadScene("Level4Normal");
+        }
+        if (Input.GetKeyDown("[0]"))
+        {
+            SceneManager.LoadScene("Level5Normal");
+        }
+
     }
 
     public void GameOver()
