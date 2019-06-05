@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class PlayerMovementWithSword : MonoBehaviour {
+public class PlayerMovementWithSword : MonoBehaviour
+{
 
     public CharacterController2D controller;
-    [HideInInspector]public Animator animator;
+    [HideInInspector] public Animator animator;
 
     //movement
     public float runSpeed;

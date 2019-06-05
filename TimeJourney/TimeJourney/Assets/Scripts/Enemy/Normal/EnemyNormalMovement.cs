@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyNormalMovement : EnemyMovement
 {
 
     public float[] m_patrolPosition;
 
-    [SerializeField]private int nextPosition;
+    [SerializeField] private int nextPosition;
     private Vector3 m_playerLastPosition;
     private Transform m_playerBodyCollider;
     private bool m_checkLastPosition; // say if checked last player position;
@@ -20,7 +18,7 @@ public class EnemyNormalMovement : EnemyMovement
     private void Start()
     {
         m_playerBodyCollider = GameController.instance.player.transform.GetChild(5).GetChild(0).transform;
-        if(GetComponentInChildren<ParticleSystemRenderer>().flip.x == 0)
+        if (GetComponentInChildren<ParticleSystemRenderer>().flip.x == 0)
         {
             m_FacingRight = false;
         }

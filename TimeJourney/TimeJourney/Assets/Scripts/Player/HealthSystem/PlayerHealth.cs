@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,13 +15,14 @@ public class PlayerHealth : MonoBehaviour
     private bool damageReceived;
 
 
-    [SerializeField]private float m_currentHealth;
+    [SerializeField] private float m_currentHealth;
     public float m_CurrentHealth
     {
         get { return m_currentHealth; }
-        set {
+        set
+        {
             m_currentHealth = value;
-            SetHealth();  
+            SetHealth();
         }
     }
 
@@ -80,7 +80,6 @@ public class PlayerHealth : MonoBehaviour
     public void TriggerDeathAnimation()
     {
         m_animator.SetFloat("Speed", 0);
-        m_animator.SetBool("IsAttacking", false);
         m_animator.SetBool("IsGrounded", true);
     }
 
@@ -92,7 +91,7 @@ public class PlayerHealth : MonoBehaviour
     public void SetHealth()
     {
         float currentHPLost = (m_maxHp - m_currentHealth) / 100;
-        m_HurtImage.color = new Color (1,0,0, currentHPLost);
+        m_HurtImage.color = new Color(1, 0, 0, currentHPLost);
     }
 
 }

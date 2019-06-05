@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using TMPro;
-using UnityEngine.AI;
-using System;
 
 public class DialogWithAction : MonoBehaviour
 {
@@ -92,13 +89,9 @@ public class DialogWithAction : MonoBehaviour
 
     public void CheckDialogStatus()
     {
-        if(!dialogEnded)
+        if (!dialogEnded)
         {
             NextDialogSentences();
-        }
-        else
-        {
-
         }
     }
 }

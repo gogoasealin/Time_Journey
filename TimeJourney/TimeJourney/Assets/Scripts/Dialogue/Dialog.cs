@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using TMPro;
-using UnityEngine.AI;
-using System;
 
 public class Dialog : MonoBehaviour
 {
@@ -56,7 +53,6 @@ public class Dialog : MonoBehaviour
         else
         {
             MoreDialogSentences();
-            moreDialog = true;
         }
     }
 
@@ -77,7 +73,7 @@ public class Dialog : MonoBehaviour
         DialogsController.instance.textDisplay.text = "";
         DialogsController.instance.textDisplay.gameObject.SetActive(false);
         DialogsController.instance.textBackGround.SetActive(false);
-        if (moreDialog && destroyDialog)
+        if (destroyDialog)
         {
             Destroy(gameObject);
         }
@@ -86,13 +82,6 @@ public class Dialog : MonoBehaviour
 
     public void CheckDialogStatus()
     {
-        if (destroyDialog)
-        {
-            StopCoroutine(type);
-            DialogsController.instance.textDisplay.text = "";
-            DialogsController.instance.textDisplay.gameObject.SetActive(false);
-            DialogsController.instance.textBackGround.SetActive(false);
-            Destroy(gameObject);
-        }
+        EndDialog();
     }
 }
