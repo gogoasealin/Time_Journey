@@ -84,6 +84,10 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene("Level5Normal");
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            player.transform.position = new Vector3(35, 0, 0);
+        }
 
     }
 

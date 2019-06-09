@@ -9,8 +9,7 @@ public class SwitchNewPlayer : MonoBehaviour
     public GameObject swordLogic;
     public GameObject stoneLogic;
     public GameObject simplePlayerObject;
-    public GameObject enemy;
-    public GameObject enemyToInstantiate;
+    public GameObject useSwordAndStoneTutorial;
     public Vector3 enemyToInstantiateposition;
     private void Start()
     {
@@ -39,7 +38,6 @@ public class SwitchNewPlayer : MonoBehaviour
 
         Destroy(simplePlayerObject);
 
-        Destroy(enemy);
-        //Instantiate(enemyToInstantiate, enemyToInstantiateposition, Quaternion.identity);
+        useSwordAndStoneTutorial.SetActive(true);
     }
 }
