@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageToPlayer : MonoBehaviour
@@ -12,8 +11,9 @@ public class DamageToPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            StopAllCoroutines();
             damageToPlayer = DamageAnimation();
             StartCoroutine(damageToPlayer);
         }
@@ -37,3 +37,4 @@ public class DamageToPlayer : MonoBehaviour
     }
 
 }
+

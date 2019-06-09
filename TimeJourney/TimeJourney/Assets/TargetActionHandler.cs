@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetActionHandler : MonoBehaviour
 {
-    [SerializeField] GameObject objectToMove;
+    public GameObject objectToMove;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,6 +13,7 @@ public class TargetActionHandler : MonoBehaviour
             Debug.Log(other.name);
             objectToMove.SetActive(true);
             Destroy(gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 }

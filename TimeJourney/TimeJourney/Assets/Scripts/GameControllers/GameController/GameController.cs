@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,7 +35,7 @@ public class GameController : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             Revive();
         }
@@ -44,7 +43,7 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
         }
-        if(Input.GetKeyDown("[1]"))
+        if (Input.GetKeyDown("[1]"))
         {
             SceneManager.LoadScene("Level1Easy");
         }
@@ -108,13 +107,14 @@ public class GameController : MonoBehaviour
         GetComponent<RevivePlayer>().Revive();
         m_death = false;
         Time.timeScale = 1;
-        player.GetComponent<PlayerHealth>().SetHealth();
+        player.GetComponent<PlayerHealth>().Revive();
     }
 
     public void SaveGame()
     {
         saveSystemSO.m_PlayerPosition = player.transform.position;
-        if (saveSystemSO.m_SceneName.Contains("Easy")) {
+        if (saveSystemSO.m_SceneName.Contains("Easy"))
+        {
             saveSystemSO.m_SceneName = saveSystemSO.m_SceneName.Replace("Easy", "");
         }
         else
@@ -126,7 +126,10 @@ public class GameController : MonoBehaviour
     public void LoadGame()
     {
         if (!saveSystemSO.m_LoadGame)
+        {
             return;
+        }
+
         player.transform.position = saveSystemSO.m_PlayerPosition;
 
         saveSystemSO.m_LoadGame = false;

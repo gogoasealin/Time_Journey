@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SwitchNewPlayer : MonoBehaviour
 {
@@ -10,7 +8,9 @@ public class SwitchNewPlayer : MonoBehaviour
     public GameObject stoneLogic;
     public GameObject simplePlayerObject;
     public GameObject useSwordAndStoneTutorial;
-    public Vector3 enemyToInstantiateposition;
+    [Tooltip("The first enemy body for getting components")]
+    public GameObject enemyBody;
+
     private void Start()
     {
         if (simplePlayerObject != null && simplePlayerObject.transform.position == Vector3.zero)
@@ -39,5 +39,8 @@ public class SwitchNewPlayer : MonoBehaviour
         Destroy(simplePlayerObject);
 
         useSwordAndStoneTutorial.SetActive(true);
+
+        Destroy(enemyBody.GetComponent<DamageToSimplePlayer>());
+        enemyBody.AddComponent<DamageToPlayer>();
     }
 }

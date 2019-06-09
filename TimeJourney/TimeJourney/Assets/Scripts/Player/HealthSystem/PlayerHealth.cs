@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         set
         {
             m_currentHealth = value;
-            SetHealth();
+            SetDamageImage();
         }
     }
 
@@ -88,10 +88,17 @@ public class PlayerHealth : MonoBehaviour
         GameController.instance.GameOver();
     }
 
-    public void SetHealth()
+    public void SetDamageImage()
     {
         float currentHPLost = (m_maxHp - m_currentHealth) / 100;
         m_HurtImage.color = new Color(1, 0, 0, currentHPLost);
+    }
+
+    public void Revive()
+    {
+        m_currentHealth = m_maxHp;
+        SetDamageImage();
+        damageReceived = false;
     }
 
 }
