@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameController.instance.SaveGame();
+            Destroy(gameObject);
         }
     }
 }

@@ -8,7 +8,7 @@ public class PlayerHold : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.SetParent(gameObject.transform);
+            other.transform.parent.parent.SetParent(gameObject.transform);
         }
     }
 
@@ -16,7 +16,7 @@ public class PlayerHold : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.parent = null;
+            other.transform.parent.parent.parent = null;
         }
     }
 }

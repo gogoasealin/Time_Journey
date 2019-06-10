@@ -5,43 +5,43 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 85c4e2963e9e61b4d92cecd1cc593b3a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/IntroCity.unity
     guid: 0d8aad3af4e648049bf84dd7313c0c05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1EasyDuplicate.unity
     guid: bbada3d12142d29488dce209b57ade9f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1Normal.unity
     guid: fcc9e6607b4f13245b17e17c4254db9e
   - enabled: 1
     path: Assets/Scenes/Level1Easy.unity
     guid: 8f3f4a3ff262e054296e5b8f7829c06a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level5Easy.unity
     guid: f99e7a5c45cc06d44b648dc41ea3766b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level2Easy.unity
     guid: 38c41dfe76730c54783a32ea210a5416
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level2Normal.unity
     guid: 0e02a8465f28bca46ac30f31df9ba71d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level3Easy.unity
     guid: bff2b4d8467d19943bb80298b90a9309
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level3Normal.unity
     guid: 6d1a33eb583d7da4eae76dc196014832
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level4Easy.unity
     guid: 800eca459c551db45a7844d92ab8f87c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level4Normal.unity
     guid: a7ea8cba6a6d8124f9600d0228b61179
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level5Normal.unity
     guid: b09e36440fc6d2a469dc2c63bc9ad318
   m_configObjects: {}
