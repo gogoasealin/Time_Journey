@@ -17,8 +17,6 @@ public class ShotCollision : MonoBehaviour
         {
             other.GetComponent<Health>().GetDamage(Type, ShotDamageAmount);
             gameObject.SetActive(false);
-            Debug.Log(other.name);
         }
-
     }
 }

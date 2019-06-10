@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     public int m_maxHp;
-    protected int m_CurrentHealth;
+    public int m_CurrentHealth;
 
     public virtual void Start()
     {

@@ -10,14 +10,9 @@ public class GameController : MonoBehaviour
     public SaveSystemSO saveSystemSO;
     private bool m_death;
 
-
     public Action SpecialAction = delegate { };
-
-
     // Menu
     GameObject m_Menu;
-
-    //Revive
 
     void Awake()
     {
@@ -103,7 +98,14 @@ public class GameController : MonoBehaviour
 
     private void Revive()
     {
-        GetComponent<RevivePlayer>().Revive();
+        if (saveSystemSO.m_SceneName.Equals(SceneManager.GetActiveScene().name))
+        {
+            GetComponent<RevivePlayer>().Revive();
+        }
+        else
+        {
+            player.transform.position = Vector3.zero;
+        }
         m_death = false;
         Time.timeScale = 1;
         player.GetComponent<PlayerHealth>().Revive();
@@ -130,7 +132,7 @@ public class GameController : MonoBehaviour
 
     public void LoadGame()
     {
-        if (!saveSystemSO.m_LoadGame)
+        if (!saveSystemSO.m_LoadGame || saveSystemSO.m_SceneName != SceneManager.GetActiveScene().name)
         {
             return;
         }

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlatformMoveOneTime : MonoBehaviour
+public class PlatformMoveOneTimeWithoutDestroying : MonoBehaviour
 {
     public Vector3 nextPosition;
 

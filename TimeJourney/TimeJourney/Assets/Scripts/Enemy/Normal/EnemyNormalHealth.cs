@@ -20,7 +20,6 @@ public class EnemyNormalHealth : Health
     }
 
 
-
     public override void GetDamage(int dmgAmount)
     {
         m_CurrentHealth -= dmgAmount;

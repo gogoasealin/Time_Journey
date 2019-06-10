@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         m_CurrentHealth = m_maxHp;
     }
 
-    public void GetDamage(int dmgAmount)
+    public void GetDamage(int dmgAmount, bool specialAction = false)
     {
         if (damageReceived)
         {
@@ -42,11 +42,16 @@ public class PlayerHealth : MonoBehaviour
         m_CurrentHealth -= dmgAmount;
         if (m_CurrentHealth <= 0)
         {
+            if (specialAction)
+            {
+                GameController.instance.DoSpecialAction();
+            }
             Die();
             return;
         }
         GetDamageAnimation();
     }
+
 
 
 

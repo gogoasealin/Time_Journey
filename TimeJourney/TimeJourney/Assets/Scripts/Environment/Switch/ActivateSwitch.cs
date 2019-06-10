@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ActivateSwitch : MonoBehaviour
 {
@@ -20,7 +18,7 @@ public class ActivateSwitch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Shot"))
+        if (other.CompareTag("Shot"))
         {
             SwitchState();
             platformToMove.GetComponent<MovePlatform>().enabled = true;
@@ -33,7 +31,7 @@ public class ActivateSwitch : MonoBehaviour
     {
         state = !state;
 
-        if(sr.sprite == state1)
+        if (sr.sprite == state1)
         {
             sr.sprite = state2;
         }

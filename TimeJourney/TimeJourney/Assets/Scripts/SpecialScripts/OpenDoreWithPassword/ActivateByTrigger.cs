@@ -12,7 +12,6 @@ public class ActivateByTrigger : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             m_SwordLogic.SetActive(false);
             m_Canvas.SetActive(false);
-
         }
     }
 
