@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShotCollision : MonoBehaviour
 {
@@ -9,22 +7,17 @@ public class ShotCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag.Equals("BackGround"))
+        if (other.tag.Contains("Ground") || other.tag.Equals("Breakable"))
         {
             gameObject.SetActive(false);
             return;
         }
 
-        if(other.tag.Equals("Enemy"))
+        if (other.tag.Equals("Enemy"))
         {
             other.GetComponent<Health>().GetDamage(Type, ShotDamageAmount);
             gameObject.SetActive(false);
             Debug.Log(other.name);
-        }
-        if(other.tag.Equals("Breakable"))
-        {
-            gameObject.SetActive(false);
-            Debug.Log("breakable");
         }
 
     }

@@ -1,7 +1,5 @@
 ﻿
 using System;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -35,7 +33,7 @@ public class GameController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             Revive();
         }
@@ -113,6 +111,7 @@ public class GameController : MonoBehaviour
     public void SaveGame()
     {
         saveSystemSO.m_PlayerPosition = player.transform.position;
+        //save current level name without the m_difficulty
         if (saveSystemSO.m_SceneName.Contains("Easy"))
         {
             saveSystemSO.m_SceneName = saveSystemSO.m_SceneName.Replace("Easy", "");
@@ -120,6 +119,11 @@ public class GameController : MonoBehaviour
         else
         {
             saveSystemSO.m_SceneName = saveSystemSO.m_SceneName.Replace("Normal", "");
+        }
+
+        if (MenuManager.instance != null)
+        {
+            MenuManager.instance.Save();
         }
     }
 
@@ -129,9 +133,7 @@ public class GameController : MonoBehaviour
         {
             return;
         }
-
         player.transform.position = saveSystemSO.m_PlayerPosition;
-
         saveSystemSO.m_LoadGame = false;
     }
 

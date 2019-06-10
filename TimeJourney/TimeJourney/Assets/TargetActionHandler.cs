@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TargetActionHandler : MonoBehaviour
 {
@@ -10,10 +8,8 @@ public class TargetActionHandler : MonoBehaviour
     {
         if (other.tag.Equals("Shot"))
         {
-            Debug.Log(other.name);
             objectToMove.SetActive(true);
             Destroy(gameObject);
-            other.gameObject.SetActive(false);
         }
     }
 }

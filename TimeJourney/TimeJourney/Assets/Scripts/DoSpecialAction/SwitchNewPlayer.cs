@@ -11,11 +11,19 @@ public class SwitchNewPlayer : MonoBehaviour
     [Tooltip("The first enemy body for getting components")]
     public GameObject enemyBody;
 
+
+
     private void Start()
     {
         if (simplePlayerObject != null && simplePlayerObject.transform.position == Vector3.zero)
         {
             GameController.instance.SpecialAction = GivePlayerItems;
+        }
+        if (GameController.instance.saveSystemSO.m_PlayerPosition != Vector3.zero)
+        {
+            GivePlayerItems();
+            GameController.instance.player.transform.position = GameController.instance.saveSystemSO.m_PlayerPosition;
+            Debug.Log("loading from here");
         }
         enabled = false;
     }
