@@ -1,5 +1,6 @@
-﻿
-using System;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -114,11 +115,11 @@ public class GameController : MonoBehaviour
         //save current level name without the m_difficulty
         if (saveSystemSO.m_SceneName.Contains("Easy"))
         {
-            saveSystemSO.m_SceneName = saveSystemSO.m_SceneName.Replace("Easy", "");
+            saveSystemSO.m_SceneName = SceneManager.GetActiveScene().name.Replace("Easy", "");
         }
         else
         {
-            saveSystemSO.m_SceneName = saveSystemSO.m_SceneName.Replace("Normal", "");
+            saveSystemSO.m_SceneName = SceneManager.GetActiveScene().name.Replace("Normal", "");
         }
 
         if (MenuManager.instance != null)

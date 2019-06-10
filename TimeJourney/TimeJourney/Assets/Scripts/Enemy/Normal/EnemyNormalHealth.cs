@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyNormalHealth : Health
 {
@@ -18,7 +16,7 @@ public class EnemyNormalHealth : Health
     public override void Start()
     {
         base.Start();
-       // m_animator = GetComponent<Animator>();
+        // m_animator = GetComponent<Animator>();
     }
 
 
@@ -31,10 +29,7 @@ public class EnemyNormalHealth : Health
             Die();
             return;
         }
-        //if (m_hasDamageAnimation)
-        //{
-        //    GetDamageAnimation();
-        //}
+        GetComponent<EnemyNormalMovement>().PlayerInSight();
     }
 
     public override void GetDamage(string type, int dmgAmount)
@@ -88,12 +83,13 @@ public class EnemyNormalHealth : Health
                 Debug.Log("something is not ok");
                 break;
         }
-
         if (m_CurrentHealth <= 0)
         {
             Die();
             return;
         }
+        GetComponent<EnemyNormalMovement>().PlayerInSight();
+
         //if (m_hasDamageAnimation)
         //{
         //    GetDamageAnimation();
@@ -103,12 +99,20 @@ public class EnemyNormalHealth : Health
     public override void Die()
     {
         Debug.Log("die in special way");
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     public override void GetDamageAnimation()
     {
-        
+
         Debug.Log("trigger animation in special way");
     }
 }
+
+
+
+
+
+
+
+

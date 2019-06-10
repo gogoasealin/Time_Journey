@@ -57,7 +57,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1690011, y: -0.05633402}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -68,7 +68,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.488225, y: 2.790904}
+  m_Size: {x: 5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &2321433777522489399
 GameObject:
@@ -96,8 +96,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2321433777522489399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.84, y: -1.16, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 2321433778277709745}
   m_RootOrder: 1
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5405297, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -126,7 +126,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.2921095, y: 1.3}
+  m_Size: {x: 50, y: 1.3}
   m_EdgeRadius: 0
 --- !u!114 &2321433777522489401
 MonoBehaviour:
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 2321433778277709745}
   m_Layer: 11
   m_Name: ShaderEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ PrefabInstance:
     - target: {fileID: 6629802133570052211, guid: 80feef41c389ec04ebbb461abbf59315,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6629802133570052211, guid: 80feef41c389ec04ebbb461abbf59315,
         type: 3}
@@ -363,12 +363,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2f143d3c67d8a114eb5e593b2ca19417, type: 2}
+      objectReference: {fileID: 2100000, guid: 4a163988d274732469e29f7d96211179, type: 2}
     - target: {fileID: 6629802135056642703, guid: 80feef41c389ec04ebbb461abbf59315,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 2f143d3c67d8a114eb5e593b2ca19417, type: 2}
+      objectReference: {fileID: 2100000, guid: 4a163988d274732469e29f7d96211179, type: 2}
+    - target: {fileID: 6629802135056642703, guid: 80feef41c389ec04ebbb461abbf59315,
+        type: 3}
+      propertyPath: m_MinParticleSize
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629802135056642703, guid: 80feef41c389ec04ebbb461abbf59315,
+        type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80feef41c389ec04ebbb461abbf59315, type: 3}
 --- !u!1 &8950528581083885963 stripped

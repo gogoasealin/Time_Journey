@@ -7,7 +7,6 @@ public class DialogsController : MonoBehaviour
 {
     [HideInInspector] public static DialogsController instance;
     public TextMeshProUGUI textDisplay;
-    public Animator textDisplayAnim;
     public GameObject textBackGround;
 
     void Awake()
