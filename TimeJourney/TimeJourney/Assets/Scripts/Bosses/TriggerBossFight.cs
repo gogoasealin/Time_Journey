@@ -12,7 +12,7 @@ public class TriggerBossFight : MonoBehaviour
             bossWalls.SetActive(true);
             GameController.instance.SpecialAction = GetComponent<SpecialAction>().DoSpecialAction;
             boss.SetActive(true);
-            enabled = false;
+            gameObject.SetActive(false);
         }
     }
 

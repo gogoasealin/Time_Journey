@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class ActivateSwitch : MonoBehaviour
+public class MultiPlatformSwitch : MonoBehaviour
 {
-    public GameObject platformToMove;
+    public GameObject[] platformToMove;
     public bool state;
     private SpriteRenderer sr;
 
@@ -12,8 +12,6 @@ public class ActivateSwitch : MonoBehaviour
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        platformToMove.GetComponent<MovePlatform>().m_GoToNextPosition = state;
-        platformToMove.GetComponent<MovePlatform>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,8 +19,11 @@ public class ActivateSwitch : MonoBehaviour
         if (other.CompareTag("Shot"))
         {
             SwitchState();
-            platformToMove.GetComponent<MovePlatform>().m_GoToNextPosition = state;
-            platformToMove.GetComponent<MovePlatform>().enabled = true;
+            for (int i = 0; i < platformToMove.Length; i++)
+            {
+                platformToMove[i].GetComponent<MovePlatform>().m_GoToNextPosition = state;
+                platformToMove[i].GetComponent<MovePlatform>().enabled = true;
+            }
             other.gameObject.SetActive(false);
         }
     }
