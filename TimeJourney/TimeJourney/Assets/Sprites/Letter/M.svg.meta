@@ -4,7 +4,6 @@ ScriptedImporter:
   fileIDToRecycleName:
     100000: gameObject/M
     400000: gameObject/M/Transform
-    2800000: texAtlas
     21200000: gameObject/M/SpriteRenderer
     21300000: sprite
     100100000: gameObject
@@ -52,5 +51,5 @@ ScriptedImporter:
         y: 0
         width: 0
         height: 0
-      spriteID: 179988b21809bc04f98e02e7edc6bdae
+      spriteID: 763523a353b15fc499ec556901bc8ab8
     PhysicsOutlines: []
