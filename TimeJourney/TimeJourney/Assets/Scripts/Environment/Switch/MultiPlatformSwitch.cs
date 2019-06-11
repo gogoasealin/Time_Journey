@@ -3,7 +3,6 @@
 public class MultiPlatformSwitch : MonoBehaviour
 {
     public GameObject[] platformToMove;
-    public bool state;
     private SpriteRenderer sr;
 
     public Sprite state1;
@@ -21,7 +20,7 @@ public class MultiPlatformSwitch : MonoBehaviour
             SwitchState();
             for (int i = 0; i < platformToMove.Length; i++)
             {
-                platformToMove[i].GetComponent<MovePlatform>().m_GoToNextPosition = state;
+                platformToMove[i].GetComponent<MovePlatform>().m_GoToNextPosition = !platformToMove[i].GetComponent<MovePlatform>().m_GoToNextPosition;
                 platformToMove[i].GetComponent<MovePlatform>().enabled = true;
             }
             other.gameObject.SetActive(false);
@@ -30,8 +29,6 @@ public class MultiPlatformSwitch : MonoBehaviour
 
     private void SwitchState()
     {
-        state = !state;
-
         if (sr.sprite == state1)
         {
             sr.sprite = state2;
