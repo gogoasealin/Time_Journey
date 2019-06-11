@@ -52,9 +52,6 @@ public class PlayerHealth : MonoBehaviour
         GetDamageAnimation();
     }
 
-
-
-
     public void GetDamageAnimation()
     {
         damageAnimation = DamageAnimation();

@@ -9,6 +9,8 @@ public class SwordAttacks : MonoBehaviour
     //atacking
     public Transform attackPos;
     public LayerMask whatIsEnemies;
+    public LayerMask whatIsEnemiesTrigger;
+
     public float attackRange = 0.2f;
     public int swordDamageAmount;
 
@@ -26,7 +28,8 @@ public class SwordAttacks : MonoBehaviour
         }
     }
 
-    //void OnDrawGizmosSelected()
+
+    //void OnDrawGizmos()
     //{
     //    Gizmos.color = Color.yellow;
     //    Gizmos.DrawSphere(attackPos.position, attackRange);
@@ -47,11 +50,21 @@ public class SwordAttacks : MonoBehaviour
     public void SwordDamage()
     {
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+
         for (int i = 0; i < enemiesToDamage.Length; ++i)
         {
             if (!enemiesToDamage[i].isTrigger)
             {
-                Debug.Log(enemiesToDamage[i].name);
+                enemiesToDamage[i].GetComponent<Health>().GetDamage(swordDamageAmount);
+            }
+        }
+
+        enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemiesTrigger);
+
+        for (int i = 0; i < enemiesToDamage.Length; ++i)
+        {
+            if (enemiesToDamage[i].isTrigger)
+            {
                 enemiesToDamage[i].GetComponent<Health>().GetDamage(swordDamageAmount);
             }
         }
