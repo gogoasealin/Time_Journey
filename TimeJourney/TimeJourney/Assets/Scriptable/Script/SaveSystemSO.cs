@@ -3,7 +3,8 @@
 [CreateAssetMenu(menuName = "SaveSystemSO")]
 public class SaveSystemSO : ScriptableObject
 {
-    public Vector3 m_PlayerPosition;
+    public float m_PlayerPositionX;
+    public float m_PlayerPositionY;
     public string m_SceneName;
     public string m_Difficulty;
     public bool m_LoadGame;

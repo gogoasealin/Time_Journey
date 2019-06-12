@@ -47,7 +47,16 @@ public class GoblinBossHealth : Health
     public override void GetDamageAnimation()
     {
         damageAnimation = DamageAnimation();
+        PrepareNextDamageAnimation();
         StartCoroutine(damageAnimation);
+    }
+    public void PrepareNextDamageAnimation()
+    {
+        StopAllCoroutines();
+        for (int j = 0; j < bodyParts.Length; j++)
+        {
+            bodyParts[j].enabled = true;
+        }
     }
 
     public IEnumerator DamageAnimation()

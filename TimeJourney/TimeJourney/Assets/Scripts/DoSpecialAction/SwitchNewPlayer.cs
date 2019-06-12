@@ -19,11 +19,10 @@ public class SwitchNewPlayer : MonoBehaviour
         {
             GameController.instance.SpecialAction = GivePlayerItems;
         }
-        if (GameController.instance.saveSystemSO.m_PlayerPosition != Vector3.zero)
+        if (GameController.instance.saveSystemSO.m_PlayerPositionX != 0 && GameController.instance.saveSystemSO.m_PlayerPositionY != 0)
         {
             GivePlayerItems();
-            GameController.instance.player.transform.position = GameController.instance.saveSystemSO.m_PlayerPosition;
-            Debug.Log("loading from here");
+            GameController.instance.GameOver();
         }
         enabled = false;
     }

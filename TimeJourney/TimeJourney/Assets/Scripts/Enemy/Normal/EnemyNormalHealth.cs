@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EnemyNormalHealth : Health
 {
-    //public bool m_hasDamageAnimation = true;
     //[HideInInspector] public Animator m_animator;
+
+    private IEnumerator damageAnimation;
+    private ParticleSystem body;
 
     public bool weakAtFire;
     public bool ImuneAtFire;
@@ -16,6 +19,7 @@ public class EnemyNormalHealth : Health
     public override void Start()
     {
         base.Start();
+        body = GetComponentInChildren<ParticleSystem>();
         // m_animator = GetComponent<Animator>();
     }
 
@@ -89,23 +93,44 @@ public class EnemyNormalHealth : Health
         }
         GetComponent<EnemyNormalMovement>().PlayerInSight();
 
-        //if (m_hasDamageAnimation)
-        //{
-        //    GetDamageAnimation();
-        //}
+        GetDamageAnimation();
     }
 
     public override void Die()
     {
-        Debug.Log("die in special way");
         Destroy(transform.parent.gameObject);
     }
 
     public override void GetDamageAnimation()
     {
-
-        Debug.Log("trigger animation in special way");
+        damageAnimation = DamageAnimation();
+        PrepareNextDamageAnimation();
+        StartCoroutine(damageAnimation);
     }
+
+    public void PrepareNextDamageAnimation()
+    {
+        StopAllCoroutines();
+    }
+
+    public IEnumerator DamageAnimation()
+    {
+        for (int i = 0; i < 13; i++)
+        {
+            if (body.isPlaying)
+            {
+                body.Stop();
+            }
+            else
+            {
+                body.Play();
+            }
+            yield return new WaitForSeconds(.1f);
+
+        }
+        body.Play();
+    }
+
 }
 
 
