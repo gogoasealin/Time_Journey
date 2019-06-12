@@ -62,6 +62,7 @@ public class TypePassword : MonoBehaviour
             GetComponent<ActivateByTrigger>().Disable();
             Destroy(GetComponent<ActivateByTrigger>());
             GetComponent<TypePassword>().enabled = false;
+            GetComponent<GoToNextLevel>().ChangeScene();
             //Door.GetComponent<ActivateDoor>().enabled = true;
         }
         else
