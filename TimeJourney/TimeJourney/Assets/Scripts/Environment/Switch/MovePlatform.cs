@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovePlatform : MonoBehaviour
 {
@@ -18,7 +16,7 @@ public class MovePlatform : MonoBehaviour
 
     private void Update()
     {
-        if(m_GoToNextPosition)
+        if (m_GoToNextPosition)
         {
             MoveToPosition(nextPosition);
         }
