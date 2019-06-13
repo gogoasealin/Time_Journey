@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class StoneChanger : MonoBehaviour
 {
     public GameObject[] prefabtype; // list of prefabs of all type that player can change ex:fire/ice
     public GameObject[] parentForType; // the parent of the shots
     public GameObject[] particleSystemType;
+    public int stoneAvailable;
+
     private StoneAttacks StoneAttacks;
 
     private void Start()
@@ -21,20 +21,29 @@ public class StoneChanger : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
+            StoneAttacks.levitation = false;
             ChangeStone("Fire");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && stoneAvailable > 1)
         {
-            StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
-            ChangeStone("Ice");
+            StoneAttacks.FireWeapon = StoneAttacks.StoneLevitation;
+            StoneAttacks.levitation = true;
+            SetPS("Levitation");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && stoneAvailable > 2)
         {
             StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
+            StoneAttacks.levitation = false;
             ChangeStone("Light");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && stoneAvailable > 3)
+        {
+            StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
+            StoneAttacks.levitation = false;
+            ChangeStone("Ice");
         }
     }
 
@@ -47,7 +56,7 @@ public class StoneChanger : MonoBehaviour
 
     public void SetType(string name)
     {
-        for(int i = 0; i < prefabtype.Length; i++)
+        for (int i = 0; i < prefabtype.Length; i++)
         {
             if (prefabtype[i].name.Contains(name))
             {

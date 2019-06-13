@@ -31,13 +31,6 @@ public class SwordAttacks : MonoBehaviour
         }
     }
 
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(attackPos.position, attackRange);
-    }
-
     private void SwordAttack()
     {
         SwordAnimation();
