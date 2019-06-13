@@ -21,9 +21,9 @@ ScriptedImporter:
     21200006: GoblinWithAxeSprites_GO/GoblinWithAxeSprites_GO/Layer 1/SpriteRenderer
     21200008: GoblinWithAxeSprites_GO/GoblinWithAxeSprites_GO/Layer 2/SpriteRenderer
     21200010: GoblinWithAxeSprites_GO/GoblinWithAxeSprites_GO/Layer 3/SpriteRenderer
-    21300000: Layer 2
-    21300002: Layer 3
-    21300004: Layer 1
+    21300006: 037381c3a17f5e44d8a57eeb36a1d89b
+    21300008: 7ba3d295114926d4fb69f61dbef706a0
+    21300010: 96922f57517779b4a9ea32ed84e88b1e
     100100002: GoblinWithAxeSprites_GO
   externalObjects: {}
   userData: 
@@ -1935,5 +1935,6 @@ ScriptedImporter:
     index: 1
   - go: {fileID: 100018, guid: 94f9b120e6577d04280106a0cb2f207c, type: 3}
     index: 2
-  firstCreate: 0
   generateGOHierarchy: 0
+  textureAssetName: GoblinWithAxeSprites
+  prefabAssetName: GoblinWithAxeSprites_GO
