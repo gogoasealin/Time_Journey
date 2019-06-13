@@ -3,10 +3,12 @@
 public class ArrowTrower : MonoBehaviour
 {
     public GameObject arrowPrefab;
+    public float frequency = 0.5f;
+
 
     private void Start()
     {
-        InvokeRepeating("TrowArrows", 0, .5f);
+        InvokeRepeating("TrowArrows", 0, frequency);
     }
 
     public void TrowArrows()
