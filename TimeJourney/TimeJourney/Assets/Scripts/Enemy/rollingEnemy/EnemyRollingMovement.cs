@@ -1,43 +1,87 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class EnemyRollingMovement : EnemyMovement
+public class EnemyRollingMovement : MonoBehaviour
 {
+    public int m_enemyDamageAmount;
+    public float speed;
+    private Vector3 startPosition;
+    private bool roll;
+
+    public Action Roll = delegate { };
+
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
+        startPosition = gameObject.transform.position;
     }
 
-    public void Update()
+    private void Update()
     {
-        if(m_playerInSight)
+        if (roll)
         {
-            //anim.SetTrigger("attack");
             Roll();
         }
-        
     }
 
-    public void Roll()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (transform.position.x < GameController.instance.player.transform.position.x)
+        if (other.tag.Equals("Player"))
         {
-            rb2d.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
-            return;
+            //set rotation;
+            var rotation = GetComponentInChildren<ParticleSystem>().rotationOverLifetime;
+            rotation.zMultiplier = 1500;
+
+            // select direction
+            if (gameObject.transform.position.x > other.transform.position.x)
+            {
+                Roll = RollRight;
+            }
+            else
+            {
+                Roll = RollLeft;
+            }
+            roll = true;
         }
-        rb2d.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
-
     }
 
-    public override void PlayerInSight()
+    public void Disable()
     {
-        m_playerInSight = true;
+        gameObject.SetActive(false);
     }
 
-    public override void PlayerOutOfSight()
+    public void RollRight()
     {
-        m_playerInSight = false;
+        transform.position = Vector3.MoveTowards(transform.position, transform.right, Time.deltaTime * speed);
+    }
+
+    public void RollLeft()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, -transform.right, Time.deltaTime * speed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            GameController.instance.player.GetComponent<PlayerHealth>().GetDamage(m_enemyDamageAmount);
+            gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag.Equals("Breakable"))
+        {
+            other.gameObject.GetComponent<Breakable>().GetDamage(100);
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        roll = false;
+        Invoke("Enable", 2f);
+        gameObject.transform.position = startPosition;
+    }
+
+    private void Enable()
+    {
+        gameObject.SetActive(true);
     }
 }

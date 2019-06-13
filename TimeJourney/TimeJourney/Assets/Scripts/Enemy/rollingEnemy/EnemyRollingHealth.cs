@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyRollingHealth : Health
+﻿public class EnemyRollingHealth : Health
 {
     public bool getDMG;
     public override void GetDamage(int dmgAmount)
     {
-        if(getDMG)
+        if (getDMG)
         {
             base.GetDamage(dmgAmount);
         }
@@ -20,16 +16,4 @@ public class EnemyRollingHealth : Health
             base.GetDamage(type, dmgAmount);
         }
     }
-
-
-    //public override void Die()
-    //{
-    //    Debug.Log("die in special way");
-    //    Destroy(gameObject);
-    //}
-
-    //public override void GetDamageAnimation()
-    //{
-    //    Debug.Log("trigger animation in special way");
-    //}
 }

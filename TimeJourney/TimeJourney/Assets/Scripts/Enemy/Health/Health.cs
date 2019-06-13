@@ -2,7 +2,7 @@
 
 public class Health : MonoBehaviour
 {
-    public int m_maxHp;
+    public int m_maxHp = 100;
     public int m_CurrentHealth;
 
     public virtual void Start()

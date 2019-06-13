@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -10,8 +8,8 @@ public class EnemyMovement : MonoBehaviour
     protected Rigidbody2D rb2d;
 
     protected virtual void Patrol() {; }
-    protected virtual void ChasePlayer(){; }
-    protected virtual void Attack(){; }
+    protected virtual void ChasePlayer() {; }
+    protected virtual void Attack() {; }
     protected virtual void Flip() {; }
     public virtual void PlayerInSight() {; }
     public virtual void PlayerOutOfSight() {; }

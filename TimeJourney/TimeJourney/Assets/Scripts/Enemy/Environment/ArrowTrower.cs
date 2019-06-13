@@ -25,7 +25,6 @@ public class ArrowTrower : MonoBehaviour
                 return gameObject.transform.GetChild(i).gameObject;
             }
         }
-        Debug.Log("We Need More arrows " + gameObject.name);
         GameObject newArrow = Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity);
         newArrow.SetActive(false);
         newArrow.transform.SetParent(gameObject.transform);
