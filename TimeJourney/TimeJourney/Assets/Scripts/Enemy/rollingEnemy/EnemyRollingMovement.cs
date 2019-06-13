@@ -48,16 +48,16 @@ public class EnemyRollingMovement : MonoBehaviour
         if (other.gameObject.tag.Equals("Breakable"))
         {
             other.gameObject.GetComponent<Health>().GetDamage(100);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
     private void OnDisable()
     {
         roll = false;
-        Invoke("Enable", 2f);
         gameObject.transform.position = startPosition;
         SetRotation(false);
+        Invoke("Enable", 2f);
     }
 
     private void Enable()

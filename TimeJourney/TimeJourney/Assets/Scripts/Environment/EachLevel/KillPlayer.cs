@@ -8,5 +8,9 @@ public class KillPlayer : MonoBehaviour
         {
             GameController.instance.GameOver();
         }
+        if (other.tag == "Enemy")
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }
