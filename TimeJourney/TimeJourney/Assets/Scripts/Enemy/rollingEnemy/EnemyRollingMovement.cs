@@ -6,7 +6,7 @@ public class EnemyRollingMovement : MonoBehaviour
     public int m_enemyDamageAmount;
     public float speed;
     private Vector3 startPosition;
-    private bool roll;
+    public bool roll;
 
     public Action Roll = delegate { };
 
@@ -20,27 +20,6 @@ public class EnemyRollingMovement : MonoBehaviour
         if (roll)
         {
             Roll();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag.Equals("Player"))
-        {
-            //set rotation;
-            var rotation = GetComponentInChildren<ParticleSystem>().rotationOverLifetime;
-            rotation.zMultiplier = 1500;
-
-            // select direction
-            if (gameObject.transform.position.x > other.transform.position.x)
-            {
-                Roll = RollLeft;
-            }
-            else
-            {
-                Roll = RollRight;
-            }
-            roll = true;
         }
     }
 
@@ -78,12 +57,24 @@ public class EnemyRollingMovement : MonoBehaviour
         roll = false;
         Invoke("Enable", 2f);
         gameObject.transform.position = startPosition;
-        var rotation = GetComponentInChildren<ParticleSystem>().rotationOverLifetime;
-        rotation.zMultiplier = 0;
+        SetRotation(false);
     }
 
     private void Enable()
     {
         gameObject.SetActive(true);
+    }
+
+    public void SetRotation(bool status)
+    {
+        var rotation = GetComponentInChildren<ParticleSystem>().rotationOverLifetime;
+        if (status)
+        {
+            rotation.zMultiplier = 1500;
+        }
+        else
+        {
+            rotation.zMultiplier = 0;
+        }
     }
 }
