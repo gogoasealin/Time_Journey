@@ -51,7 +51,6 @@ public class StoneAttacks : MonoBehaviour
         Vector2 worldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 1f, levitationLayerMask);
-
         if (hit.collider != null && hit.collider.gameObject.GetComponent<PickUp>())
         {
             hit.collider.gameObject.GetComponent<PickUp>().enabled = true;
