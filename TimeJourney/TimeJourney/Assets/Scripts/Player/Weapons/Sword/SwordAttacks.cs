@@ -12,7 +12,7 @@ public class SwordAttacks : MonoBehaviour
     public LayerMask whatIsEnemies;
     public LayerMask whatIsEnemiesTrigger;
 
-    public float attackRange = 0.2f;
+    public float attackRange = 0.8f;
     public int swordDamageAmount;
 
     private List<GameObject> enemyWhoReceivedDamage = new List<GameObject>();
