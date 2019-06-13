@@ -34,11 +34,11 @@ public class EnemyRollingMovement : MonoBehaviour
             // select direction
             if (gameObject.transform.position.x > other.transform.position.x)
             {
-                Roll = RollRight;
+                Roll = RollLeft;
             }
             else
             {
-                Roll = RollLeft;
+                Roll = RollRight;
             }
             roll = true;
         }
@@ -51,12 +51,12 @@ public class EnemyRollingMovement : MonoBehaviour
 
     public void RollRight()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.right, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.right, Time.deltaTime * speed);
     }
 
     public void RollLeft()
     {
-        transform.position = Vector3.MoveTowards(transform.position, -transform.right, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position - transform.right, Time.deltaTime * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -68,7 +68,7 @@ public class EnemyRollingMovement : MonoBehaviour
         }
         if (other.gameObject.tag.Equals("Breakable"))
         {
-            other.gameObject.GetComponent<Breakable>().GetDamage(100);
+            other.gameObject.GetComponent<Health>().GetDamage(100);
             gameObject.SetActive(false);
         }
     }
@@ -78,6 +78,8 @@ public class EnemyRollingMovement : MonoBehaviour
         roll = false;
         Invoke("Enable", 2f);
         gameObject.transform.position = startPosition;
+        var rotation = GetComponentInChildren<ParticleSystem>().rotationOverLifetime;
+        rotation.zMultiplier = 0;
     }
 
     private void Enable()
