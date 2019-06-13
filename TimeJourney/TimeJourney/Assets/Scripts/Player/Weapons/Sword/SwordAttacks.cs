@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordAttacks : MonoBehaviour
@@ -13,6 +14,8 @@ public class SwordAttacks : MonoBehaviour
 
     public float attackRange = 0.2f;
     public int swordDamageAmount;
+
+    private List<GameObject> enemyWhoReceivedDamage = new List<GameObject>();
 
     void Start()
     {
@@ -29,16 +32,16 @@ public class SwordAttacks : MonoBehaviour
     }
 
 
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawSphere(attackPos.position, attackRange);
-    //}
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(attackPos.position, attackRange);
+    }
 
     private void SwordAttack()
     {
         SwordAnimation();
-        SwordDamage();
+        InvokeRepeating("SwordDamage", 0, .1f);
     }
 
     public void SwordAnimation()
@@ -55,7 +58,11 @@ public class SwordAttacks : MonoBehaviour
         {
             if (!enemiesToDamage[i].isTrigger)
             {
-                enemiesToDamage[i].GetComponent<Health>().GetDamage(swordDamageAmount);
+                if (!enemyWhoReceivedDamage.Contains(enemiesToDamage[i].gameObject))
+                {
+                    enemiesToDamage[i].GetComponent<Health>().GetDamage(swordDamageAmount);
+                    enemyWhoReceivedDamage.Add(enemiesToDamage[i].gameObject);
+                }
             }
         }
 
@@ -65,8 +72,18 @@ public class SwordAttacks : MonoBehaviour
         {
             if (enemiesToDamage[i].isTrigger)
             {
-                enemiesToDamage[i].GetComponent<Health>().GetDamage(swordDamageAmount);
+                if (!enemyWhoReceivedDamage.Contains(enemiesToDamage[i].gameObject))
+                {
+                    enemiesToDamage[i].GetComponent<Health>().GetDamage(swordDamageAmount);
+                    enemyWhoReceivedDamage.Add(enemiesToDamage[i].gameObject);
+                }
             }
         }
+    }
+
+    public void StopAttacking()
+    {
+        CancelInvoke("SwordDamage");
+        enemyWhoReceivedDamage.Clear();
     }
 }

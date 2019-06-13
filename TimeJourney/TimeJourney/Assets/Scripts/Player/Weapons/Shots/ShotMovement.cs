@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ShotMovement : MonoBehaviour {
+public class ShotMovement : MonoBehaviour
+{
 
     public Vector3 target;
     public float speed = 1;
@@ -10,20 +9,17 @@ public class ShotMovement : MonoBehaviour {
 
     private void OnEnable()
     {
-        destination = (target - transform.position) * 100; 
+        destination = (target * 100 - transform.position * 100);
+        Invoke("DisableShot", 0.7f);
     }
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, destination, Time.deltaTime * speed);
-        if(transform.position == target)
-        {
-            gameObject.SetActive(false);
-        }
+        transform.position = Vector2.MoveTowards(transform.position, destination * 100, Time.deltaTime * speed);
     }
 
 
-    private void OnBecameInvisible()
+    private void DisableShot()
     {
         gameObject.SetActive(false);
     }

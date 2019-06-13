@@ -3,22 +3,21 @@ using UnityEngine;
 
 public class StoneAttacks : MonoBehaviour
 {
-    public static StoneAttacks instance;
+    //public static StoneAttacks instance;
 
-    void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
+    //void Awake()
+    //{
+    //    if (instance != null && instance != this)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //    else
+    //    {
+    //        instance = this;
+    //    }
+    //}
 
-
-    public Action<Vector2> FireWeapon = delegate { };
+    public Action FireWeapon = delegate { };
     private PlayerMovementWithSword pmws;
 
     private Vector3 target;
@@ -30,8 +29,6 @@ public class StoneAttacks : MonoBehaviour
     public GameObject shot; // gameObject to instantiate if we don't have enought 
     private GameObject currentShot;
     public LayerMask levitationLayerMask;
-    public Vector3 nextFireTarget;
-
 
     private void Start()
     {
@@ -42,35 +39,20 @@ public class StoneAttacks : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(1) && pmws.canAttack)
-        { 
-            FireWeapon(cam.ScreenToWorldPoint(Input.mousePosition));
-        }
-    }
-
-    public void StoneLevitation(Vector2 target)
-    {
-        StoneAnimation();
-        Vector2 worldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-        
-        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 1f, levitationLayerMask);
-
-        
-        if (hit.collider != null && hit.collider.gameObject.GetComponent<PickUp>())
         {
-            hit.collider.gameObject.GetComponent<PickUp>().enabled = true;
+            FireWeapon();
         }
     }
 
-    public void StoneAttack(Vector2 target)
+    public void StoneAttack()
     {
         StoneAnimation();
-        nextFireTarget = target;
     }
 
     public void Shot()
     {
         currentShot = GetNextShot();
-        StoneInstantiate(currentShot, shotPosition.position, nextFireTarget);
+        StoneInstantiate(currentShot, shotPosition.position);
     }
 
     public void StoneAnimation()
@@ -81,9 +63,9 @@ public class StoneAttacks : MonoBehaviour
 
     public GameObject GetNextShot()
     {
-        for(int i =0 ; i < shotsParent.transform.childCount; i++)
+        for (int i = 0; i < shotsParent.transform.childCount; i++)
         {
-            if(!shotsParent.transform.GetChild(i).gameObject.activeSelf)
+            if (!shotsParent.transform.GetChild(i).gameObject.activeSelf)
             {
                 return shotsParent.transform.GetChild(i).gameObject;
             }
@@ -94,10 +76,11 @@ public class StoneAttacks : MonoBehaviour
         return newShot;
     }
 
-    public void StoneInstantiate(GameObject shot, Vector2 positionToInstantiate, Vector2 targetToReach)
+    public void StoneInstantiate(GameObject shot, Vector2 positionToInstantiate)
     {
         shot.transform.position = positionToInstantiate;
-        shot.GetComponent<ShotMovement>().target = targetToReach;
+        Vector3 targetPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        shot.GetComponent<ShotMovement>().target = new Vector3(targetPos.x, targetPos.y, 0);
         shot.SetActive(true);
     }
 }

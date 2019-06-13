@@ -62,6 +62,7 @@ public class PlayerMovementWithSword : MonoBehaviour
     public void EnableAttack()
     {
         canAttack = true;
+        GameController.instance.swordLogic.GetComponent<SwordAttacks>().StopAttacking();
     }
 
     public void Shot()

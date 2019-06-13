@@ -33,6 +33,7 @@ public class EnemyNormalHealth : Health
             return;
         }
         GetComponent<EnemyNormalMovement>().PlayerInSight();
+        GetDamageAnimation();
     }
 
     public override void GetDamage(string type, int dmgAmount)
@@ -92,7 +93,6 @@ public class EnemyNormalHealth : Health
             return;
         }
         GetComponent<EnemyNormalMovement>().PlayerInSight();
-
         GetDamageAnimation();
     }
 
@@ -103,8 +103,8 @@ public class EnemyNormalHealth : Health
 
     public override void GetDamageAnimation()
     {
-        damageAnimation = DamageAnimation();
         PrepareNextDamageAnimation();
+        damageAnimation = DamageAnimation();
         StartCoroutine(damageAnimation);
     }
 

@@ -20,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2Easy.unity
     guid: 3d881f561fd6cfa49803dec74c97c3d3
-  - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/7d8e404e703c50d449af2a15df8c235c
-    guid: 7d8e404e703c50d449af2a15df8c235c
   - enabled: 1
     path: Assets/Scenes/Level2Normal.unity
     guid: e1d6b6042f08b55448f24aafc6e62315
