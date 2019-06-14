@@ -47,7 +47,7 @@ public class EnemyRollingMovement : MonoBehaviour
         }
         if (other.gameObject.tag.Equals("Breakable"))
         {
-            other.gameObject.GetComponent<Health>().GetDamage(100);
+            other.gameObject.GetComponent<Health>().Die();
             Destroy(gameObject);
         }
     }

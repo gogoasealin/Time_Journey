@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            player.transform.position = new Vector3(60, 0, 0);
+            player.transform.position = new Vector3(90, 0, 0);
         }
 
     }
