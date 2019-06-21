@@ -35,7 +35,7 @@ public class ArrowMovement : MonoBehaviour
         {
             other.gameObject.SetActive(false);
         }
-        if (other.gameObject.tag == "BackGround")
+        if (other.gameObject.tag == "BackGround" || other.gameObject.tag == "Breakable" || other.gameObject.tag == "Enemy")
         {
             gameObject.SetActive(false);
         }
