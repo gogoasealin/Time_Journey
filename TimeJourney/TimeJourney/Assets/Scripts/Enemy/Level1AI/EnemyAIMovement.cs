@@ -5,7 +5,7 @@ public class EnemyAIMovement : MonoBehaviour
 {
     [Tooltip("Player AttackPosition(center of the player)")]
     public Transform playerAttackPosition;
-    public Transform enemyGFX;
+
     public Vector3[] patrollingPositions;
     private int nextPosition;
 
