@@ -20,14 +20,11 @@ public class Health : MonoBehaviour
 
     public virtual void Die()
     {
-        Debug.Log(gameObject.name + " has die in normal way");
         gameObject.SetActive(false);
     }
 
     public virtual void GetDamageAnimation()
     {
-        Debug.Log("trigger get dmg animation has played in normal way");
-        //m_animator.SetTrigger("GetDamage");
     }
 
 }

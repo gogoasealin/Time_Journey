@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GoblinBossHealth : Health
 {
-    [HideInInspector] public Animator anim;
     private IEnumerator damageAnimation;
     public SpriteRenderer[] bodyParts;
     public TriggerBossFight triggerBossFight;
@@ -18,7 +17,6 @@ public class GoblinBossHealth : Health
     public override void Start()
     {
         base.Start();
-        anim = GetComponent<Animator>();
     }
 
     public override void GetDamage(int dmgAmount)

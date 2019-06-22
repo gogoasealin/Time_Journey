@@ -8,7 +8,7 @@ public class Portal : MonoBehaviour
     public SaveSystemSO saveSystemSO;
     public GameObject fade;
 
-    private bool onTrigger;
+    public bool onTrigger;
 
     public void Start()
     {

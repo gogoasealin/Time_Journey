@@ -8,7 +8,7 @@ public class PickUp : MonoBehaviour
         {
             enabled = false;
         }
-        transform.position = Vector2.MoveTowards(transform.position, StoneAttacks.instance.cam.ScreenToWorldPoint(Input.mousePosition), 1f * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, StoneAttacks.instance.cam.ScreenToWorldPoint(Input.mousePosition), 2f * Time.deltaTime);
     }
 
     private void OnEnable()
