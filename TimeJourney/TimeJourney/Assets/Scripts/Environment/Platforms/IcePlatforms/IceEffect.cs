@@ -17,7 +17,10 @@ public class IceEffect : MonoBehaviour
 
     private void OnDisable()
     {
-        GameController.instance.player.GetComponent<CharacterController2D>().m_JumpForce = 300;
+        if (GameController.instance.player != null)
+        {
+            GameController.instance.player.GetComponent<CharacterController2D>().m_JumpForce = 300;
+        }
     }
 
     private void Update()
