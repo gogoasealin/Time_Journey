@@ -6,7 +6,7 @@ public class PurpleGoblinHealth : Health
     private IEnumerator damageAnimation;
     private SpriteRenderer bodyParts;
     public TriggerBossFight triggerBossFight;
-    public Vector3 spawnPosition;
+    private Vector3 spawnPosition;
 
     private void OnEnable()
     {
@@ -21,7 +21,6 @@ public class PurpleGoblinHealth : Health
 
     public override void Start()
     {
-        m_maxHp = 40;
         base.Start();
 
         bodyParts = GetComponentInChildren<SpriteRenderer>();

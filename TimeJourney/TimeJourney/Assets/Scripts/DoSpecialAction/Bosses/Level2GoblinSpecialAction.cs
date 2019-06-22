@@ -3,6 +3,8 @@
 public class Level2GoblinSpecialAction : SpecialAction
 {
     public GameObject[] boxes;
+    public MultiSwitchManager msm;
+
     public override void DoSpecialAction()
     {
         gameObject.SetActive(true);
@@ -11,5 +13,6 @@ public class Level2GoblinSpecialAction : SpecialAction
         {
             boxes[i].SetActive(true);
         }
+        msm.Reset();
     }
 }
