@@ -29365,6 +29365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8845083905785886599, guid: 82d3fa5b597e9204eb5dca64048bcf99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7697813462822979913, guid: 82d3fa5b597e9204eb5dca64048bcf99,
         type: 3}
       propertyPath: m_Sprite
@@ -29405,11 +29410,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8845083905785886599, guid: 82d3fa5b597e9204eb5dca64048bcf99,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4709331028749765751, guid: 82d3fa5b597e9204eb5dca64048bcf99,
         type: 3}
@@ -108181,9 +108181,9 @@ GameObject:
   - component: {fileID: 1566940869}
   - component: {fileID: 1566940874}
   - component: {fileID: 1566940873}
-  - component: {fileID: 1566940872}
   - component: {fileID: 1566940871}
   - component: {fileID: 1566940870}
+  - component: {fileID: 1566940872}
   m_Layer: 10
   m_Name: MovingNarrowIcePlatform (2)
   m_TagString: Untagged
@@ -108254,7 +108254,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1566940868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba57c9bcf26b12a45b12e9ebfabc630d, type: 3}
+  m_Script: {fileID: 11500000, guid: 90e936eea38dc9c4bb6e7ad0def3f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1566940873
@@ -122014,9 +122014,9 @@ GameObject:
   - component: {fileID: 2090341183}
   - component: {fileID: 2090341188}
   - component: {fileID: 2090341187}
-  - component: {fileID: 2090341186}
   - component: {fileID: 2090341185}
   - component: {fileID: 2090341184}
+  - component: {fileID: 2090341186}
   m_Layer: 10
   m_Name: MovingNarrowIcePlatform (3)
   m_TagString: Untagged
@@ -122087,7 +122087,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2090341182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba57c9bcf26b12a45b12e9ebfabc630d, type: 3}
+  m_Script: {fileID: 11500000, guid: 90e936eea38dc9c4bb6e7ad0def3f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &2090341187
@@ -122867,7 +122867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4117182869802595909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.96, y: 7.53, z: -10}
+  m_LocalPosition: {x: 13.96, y: 9.530001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4117182871018547620}
@@ -122882,7 +122882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4117182871018547621}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.0000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4117182869681052897}

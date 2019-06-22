@@ -4,7 +4,7 @@ public class PlayerHold : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.gameObject.name.Equals("GroundCollider"))
+        if (other.CompareTag("Player"))
         {
             other.transform.parent.parent.SetParent(gameObject.transform);
         }
@@ -12,7 +12,7 @@ public class PlayerHold : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.gameObject.name.Equals("GroundCollider"))
+        if (other.CompareTag("Player"))
         {
             other.transform.parent.parent.parent = null;
         }
