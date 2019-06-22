@@ -10,6 +10,16 @@ public class IceEffect : MonoBehaviour
         ae2D = GetComponent<AreaEffector2D>();
     }
 
+    private void OnEnable()
+    {
+        GameController.instance.player.GetComponent<CharacterController2D>().m_JumpForce = 350;
+    }
+
+    private void OnDisable()
+    {
+        GameController.instance.player.GetComponent<CharacterController2D>().m_JumpForce = 300;
+    }
+
     private void Update()
     {
         bool right = GameController.instance.player.GetComponent<CharacterController2D>().m_FacingRight;
@@ -22,5 +32,6 @@ public class IceEffect : MonoBehaviour
         {
             ae2D.forceMagnitude = -force;
         }
+
     }
 }
