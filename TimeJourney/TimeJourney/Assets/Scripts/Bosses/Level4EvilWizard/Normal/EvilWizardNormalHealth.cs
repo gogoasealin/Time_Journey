@@ -6,6 +6,7 @@ public class EvilWizardNormalHealth : Health
     private IEnumerator damageAnimation;
     public SpriteRenderer[] bodyParts;
     public bool receiveDMG;
+    public GameObject sceneCollider;
 
     public override void Start()
     {
@@ -106,5 +107,7 @@ public class EvilWizardNormalHealth : Health
     void Disable()
     {
         gameObject.SetActive(false);
+        sceneCollider.SetActive(false);
+
     }
 }
