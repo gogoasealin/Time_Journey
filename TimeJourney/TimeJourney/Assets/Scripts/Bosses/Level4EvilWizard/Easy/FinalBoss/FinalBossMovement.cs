@@ -5,7 +5,11 @@ public class FinalBossMovement : MonoBehaviour
 {
     public GameObject wizzardPortal;
     public GameObject shot;
+    public GameObject shotStraight;
+    public GameObject shotDiagonally;
     private IEnumerator attack;
+    public bool normal;
+
 
     private void OnEnable()
     {
@@ -15,7 +19,14 @@ public class FinalBossMovement : MonoBehaviour
 
     public void Attack()
     {
-        attack = StartAttack();
+        if (normal)
+        {
+            attack = StartAttackNormal();
+        }
+        else
+        {
+            attack = StartAttack();
+        }
         StartCoroutine(attack);
     }
 
@@ -24,6 +35,28 @@ public class FinalBossMovement : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Instantiate(shot, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+
+        GetComponent<FinalBossHealth>().SetBossColorState(true);
+        Invoke("RetreatBoss", 2f);
+    }
+
+    IEnumerator StartAttackNormal()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (i % 2 == 0)
+                {
+                    Instantiate(shotStraight, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(shotDiagonally, transform.position, Quaternion.identity);
+                }
+            }
             yield return new WaitForSeconds(1f);
         }
 
