@@ -41,6 +41,7 @@ public class FinalBossHealth : Health
             return;
         }
         m_CurrentHealth -= dmgAmount;
+
         if (m_CurrentHealth <= 0)
         {
             Die();
@@ -64,7 +65,6 @@ public class FinalBossHealth : Health
             newColor = new Color(0, 0, 0);
             receiveDMG = false;
         }
-
         for (int i = 0; i < bodyParts.Length; i++)
         {
             bodyParts[i].enabled = true;
@@ -101,7 +101,7 @@ public class FinalBossHealth : Health
 
     public override void Die()
     {
-        Debug.Log("die");
+        triggerBossFight.Revert();
     }
 
 }

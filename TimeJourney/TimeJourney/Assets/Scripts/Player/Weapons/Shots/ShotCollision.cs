@@ -13,8 +13,9 @@ public class ShotCollision : MonoBehaviour
             return;
         }
 
-        if (other.tag.Equals("Enemy"))
+        if (other.tag.Equals("Enemy") || !other.gameObject.name.Contains("Shot"))
         {
+            Debug.Log(other.name);
             other.GetComponent<Health>().GetDamage(Type, ShotDamageAmount);
             gameObject.SetActive(false);
         }

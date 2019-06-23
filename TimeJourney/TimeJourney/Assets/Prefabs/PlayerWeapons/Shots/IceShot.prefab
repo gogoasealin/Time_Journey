@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2251700655339393025}
   - component: {fileID: 2251700655339393039}
   - component: {fileID: 6375301895964928771}
-  - component: {fileID: 5481584608482118456}
   - component: {fileID: 2667371054980248342}
+  - component: {fileID: 7450304969834774588}
   m_Layer: 8
   m_Name: IceShot
   m_TagString: Shot
@@ -114,20 +114,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &5481584608482118456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2251700655339393026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3947e0cbdf719b44abccd6ced520a63c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: Fire
-  ShotDamageAmount: 10
 --- !u!50 &2667371054980248342
 Rigidbody2D:
   serializedVersion: 4
@@ -149,6 +135,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7450304969834774588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2251700655339393026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494861cdee41e5a4eb441982ab043884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeFreezed: 0
 --- !u!1 &2321819838520425695
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,12 +37,6 @@ public class StoneChanger : MonoBehaviour
         {
             StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
             StoneAttacks.levitation = false;
-            ChangeStone("Light");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && stoneAvailable > 3)
-        {
-            StoneAttacks.FireWeapon = StoneAttacks.StoneAttack;
-            StoneAttacks.levitation = false;
             ChangeStone("Ice");
         }
     }
