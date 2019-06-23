@@ -13,7 +13,10 @@ public class Portal : MonoBehaviour
     public void Start()
     {
         onTrigger = false;
-        m_NextSceneName += saveSystemSO.m_Difficulty;
+        if(m_NextSceneName != "Credits")
+        {
+            m_NextSceneName += saveSystemSO.m_Difficulty;
+        }
     }
 
     public void Update()

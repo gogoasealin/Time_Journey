@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffb0107446cfa64197c1660bdbab0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NextSceneName: Level1
+  m_NextSceneName: Credits
   saveSystemSO: {fileID: 11400000, guid: 0a5e35617b1bfb045b29cea23f2bd5d1, type: 2}
   fade: {fileID: 3138664868510754894}
   onTrigger: 0

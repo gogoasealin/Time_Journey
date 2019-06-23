@@ -24,18 +24,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2Normal.unity
     guid: 144ddc7b6aba234489e513cd084ab2d4
   - enabled: 0
-    path: Assets/Scenes/Level2Normal_Temp.unity
-    guid: e1d6b6042f08b55448f24aafc6e62315
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level3Easy.unity
     guid: 36f5e6ab2d0e6c1439852e49e680d2c6
   - enabled: 1
     path: Assets/Scenes/Level3Normal.unity
     guid: bf4172027dda9be4e9680a66d518b746
-  - enabled: 1
-    path: Assets/Scenes/Level4Normal.unity
-    guid: d5cc75e11abc8bf4b990f5badcbf12a9
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level4Easy.unity
     guid: a82ab3db7618ae14aa53e055950a3196
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: f48a4c604cf605d44ace39966ae25b8f
+  - enabled: 1
+    path: Assets/Scenes/EndingCity.unity
+    guid: d9401d624d983ca49a3a92f3327ce5ab
+  - enabled: 1
+    path: Assets/Scenes/Level4Normal.unity
+    guid: c4666d8abe37ff84da98e2688e19f554
   m_configObjects: {}
