@@ -8,6 +8,7 @@ public class WizardMovement : MonoBehaviour
 
     public float speed = 400f;
     public float nextWaypointDistance = 1f;
+    public float localScale = 1f;
 
     Path path;
     int currentWaypoint = 0;
@@ -90,11 +91,11 @@ public class WizardMovement : MonoBehaviour
         //right
         if (transform.position.x <= playerShotPosition.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-localScale, localScale, localScale);
         }
         else if (transform.position.x >= playerShotPosition.position.x) //left
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(localScale, localScale, localScale);
         }
     }
 }
