@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EvilWizardMovementStage1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject wizzardPortal;
+    public GameObject lightning;
+
+    private void OnEnable()
     {
-        
+        transform.localScale = new Vector3(0.03f, 0.03f, 0);
+        GetComponent<WizardBossEnter>().enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Attack()
     {
-        
+        lightning.SetActive(true);
     }
 }

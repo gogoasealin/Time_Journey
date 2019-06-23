@@ -5,14 +5,8 @@ public class EvilWizardHealth : Health
 {
     private IEnumerator damageAnimation;
     public SpriteRenderer[] bodyParts;
-    public TriggerBossFight triggerBossFight;
-
-    private void OnEnable()
-    {
-        transform.localScale = new Vector3(0.003f, 0.003f, 0);
-        m_CurrentHealth = m_maxHp;
-        GetComponent<EvilWizardMovementStage1>().enabled = true;
-    }
+    public TriggerBossFightWizard triggerBossFight;
+    public bool receiveDMG;
 
     public override void Start()
     {
@@ -21,6 +15,10 @@ public class EvilWizardHealth : Health
 
     public override void GetDamage(int dmgAmount)
     {
+        if (!receiveDMG)
+        {
+            return;
+        }
         m_CurrentHealth -= dmgAmount;
         if (m_CurrentHealth <= 0)
         {
@@ -28,10 +26,15 @@ public class EvilWizardHealth : Health
             return;
         }
         GetDamageAnimation();
+        SetBossColorState(false);
     }
 
     public override void GetDamage(string type, int dmgAmount)
     {
+        if (!receiveDMG)
+        {
+            return;
+        }
         m_CurrentHealth -= dmgAmount;
         if (m_CurrentHealth <= 0)
         {
@@ -39,8 +42,29 @@ public class EvilWizardHealth : Health
             return;
         }
         GetDamageAnimation();
+        SetBossColorState(false);
+
     }
 
+    public void SetBossColorState(bool canReceiveDamage)
+    {
+        Color newColor;
+        if (canReceiveDamage)
+        {
+            newColor = new Color(1, 0, 0.3f);
+            receiveDMG = true;
+        }
+        else
+        {
+            newColor = new Color(1, 1, 1);
+            receiveDMG = false;
+        }
+
+        for (int i = 0; i < bodyParts.Length; i++)
+        {
+            bodyParts[i].GetComponent<SpriteRenderer>().color = newColor;
+        }
+    }
 
     public override void GetDamageAnimation()
     {
@@ -71,6 +95,10 @@ public class EvilWizardHealth : Health
 
     public override void Die()
     {
+        for (int i = 0; i < bodyParts.Length; i++)
+        {
+            bodyParts[i].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+        }
         triggerBossFight.Revert();
     }
 

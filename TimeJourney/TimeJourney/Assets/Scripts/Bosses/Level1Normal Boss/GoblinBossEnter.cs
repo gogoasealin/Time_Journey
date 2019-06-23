@@ -2,8 +2,6 @@
 
 public class GoblinBossEnter : BossEnter
 {
-    public float speed;
-
     private void Update()
     {
         transform.localScale += new Vector3(0.001f, 0.001f, 0);
