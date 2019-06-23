@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class WizardAttack : MonoBehaviour
 {
 
     public GameObject lightning;
+    private IEnumerator lightningAttack;
+
 
     void Start()
     {
@@ -27,11 +30,15 @@ public class WizardAttack : MonoBehaviour
     {
         GetComponent<EvilWizardNormalHealth>().SetBossColorState(false);
         GetComponent<WizardMovement>().attack = false;
-        Invoke("InitiateAttack", 5f);
+        if (GetComponent<EvilWizardNormalHealth>().m_CurrentHealth > 0)
+        {
+            Invoke("InitiateAttack", 5f);
+        }
     }
 
     private void OnDisable()
     {
-        CancelInvoke();
+        CancelInvoke("InitiateAttack");
+        CancelInvoke("LaunchAttack");
     }
 }
