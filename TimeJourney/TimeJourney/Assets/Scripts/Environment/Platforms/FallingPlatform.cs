@@ -7,7 +7,7 @@ public class FallingPlatform : MonoBehaviour
     public float fallTime = 1.5f;
     public float respawnTime = 2f;
 
-    private bool called;
+    protected bool called;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class FallingPlatform : MonoBehaviour
         transform.rotation = Quaternion.identity;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    protected virtual void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player") && !called)
         {
