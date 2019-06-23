@@ -1,18 +1,33 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FinalBossEnter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SpriteRenderer[] bodyParts;
+    private IEnumerator black;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        StartCoroutine(Black());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Black()
     {
-        
+        float colorValue = 1;
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < bodyParts.Length; j++)
+            {
+                bodyParts[j].GetComponent<SpriteRenderer>().color = new Color(colorValue, colorValue, colorValue);
+            }
+            colorValue -= 0.2f;
+            yield return new WaitForSeconds(.05f);
+        }
+        Invoke("Disable", 1f);
+    }
+
+    private void Disable()
+    {
+        Destroy(gameObject);
     }
 }

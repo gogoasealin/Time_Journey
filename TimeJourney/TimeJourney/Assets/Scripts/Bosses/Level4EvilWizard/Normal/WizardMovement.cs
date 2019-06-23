@@ -91,11 +91,11 @@ public class WizardMovement : MonoBehaviour
         //right
         if (transform.position.x <= playerShotPosition.position.x)
         {
-            transform.localScale = new Vector3(-localScale, localScale, localScale);
+            transform.localScale = new Vector3(-localScale, localScale, 0);
         }
         else if (transform.position.x >= playerShotPosition.position.x) //left
         {
-            transform.localScale = new Vector3(localScale, localScale, localScale);
+            transform.localScale = new Vector3(localScale, localScale, 0);
         }
     }
 }

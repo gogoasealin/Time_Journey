@@ -8,6 +8,11 @@ public class FinalBossHealth : Health
     public TriggerBossFightWizard triggerBossFight;
     public bool receiveDMG;
 
+    private void OnEnable()
+    {
+        PrepareNextDamageAnimation();
+    }
+
     public override void Start()
     {
         base.Start();
@@ -56,12 +61,13 @@ public class FinalBossHealth : Health
         }
         else
         {
-            newColor = new Color(1, 1, 1);
+            newColor = new Color(0, 0, 0);
             receiveDMG = false;
         }
 
         for (int i = 0; i < bodyParts.Length; i++)
         {
+            bodyParts[i].enabled = true;
             bodyParts[i].GetComponent<SpriteRenderer>().color = newColor;
         }
     }
@@ -69,7 +75,6 @@ public class FinalBossHealth : Health
     public override void GetDamageAnimation()
     {
         damageAnimation = DamageAnimation();
-        PrepareNextDamageAnimation();
         StartCoroutine(damageAnimation);
     }
     public void PrepareNextDamageAnimation()
@@ -91,15 +96,12 @@ public class FinalBossHealth : Health
             }
             yield return new WaitForSeconds(.1f);
         }
+        PrepareNextDamageAnimation();
     }
 
     public override void Die()
     {
-        for (int i = 0; i < bodyParts.Length; i++)
-        {
-            bodyParts[i].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
-        }
-        triggerBossFight.Revert();
+        Debug.Log("die");
     }
 
 }

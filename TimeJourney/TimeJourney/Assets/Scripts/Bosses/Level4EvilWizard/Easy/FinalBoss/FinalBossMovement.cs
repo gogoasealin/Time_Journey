@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class FinalBossMovement : MonoBehaviour
 {
     public GameObject wizzardPortal;
     public GameObject shot;
+    private IEnumerator attack;
 
     private void OnEnable()
     {
@@ -13,8 +15,27 @@ public class FinalBossMovement : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("attack");
-        // use animation attack;
-        // create 3 fire balls
+        attack = StartAttack();
+        StartCoroutine(attack);
     }
+
+    IEnumerator StartAttack()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(shot, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+
+        GetComponent<FinalBossHealth>().SetBossColorState(true);
+        Invoke("RetreatBoss", 2f);
+    }
+
+    void RetreatBoss()
+    {
+        GetComponent<FinalBossHealth>().SetBossColorState(false);
+        GetComponent<WizardBossRetreat>().enabled = true;
+    }
+
+
 }
