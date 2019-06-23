@@ -4949,6 +4949,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6816095878750318419}
+  - component: {fileID: 5140179912972613880}
   m_Layer: 0
   m_Name: ShotStreight
   m_TagString: Untagged
@@ -4974,6 +4975,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5140179912972613880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816095878750318418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53181fd4aee793408627f33ffc8dbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayTime: 3
 --- !u!1 &6816095879042083706
 GameObject:
   m_ObjectHideFlags: 0
@@ -19325,11 +19339,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6816095878750318419}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19385,6 +19394,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
@@ -19395,11 +19409,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6816095878750318419}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19455,6 +19464,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
@@ -19465,11 +19479,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6816095878750318419}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19525,6 +19534,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
@@ -19535,11 +19549,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6816095878750318419}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19594,6 +19603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight (3)
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}

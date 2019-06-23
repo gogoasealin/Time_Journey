@@ -46,16 +46,13 @@ public class FinalBossMovement : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            for (int j = 0; j < 4; j++)
+            if (i % 2 == 0)
             {
-                if (i % 2 == 0)
-                {
-                    Instantiate(shotStraight, transform.position, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(shotDiagonally, transform.position, Quaternion.identity);
-                }
+                Instantiate(shotStraight, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(shotDiagonally, transform.position, Quaternion.identity);
             }
             yield return new WaitForSeconds(1f);
         }

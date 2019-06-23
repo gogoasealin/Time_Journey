@@ -69,6 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925989043990204238}
+  - component: {fileID: 8194172200167827834}
   m_Layer: 0
   m_Name: ShotDiagonally
   m_TagString: Untagged
@@ -88,12 +89,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 925989044879096334}
-  - {fileID: 925989044574366851}
   - {fileID: 925989044939388033}
+  - {fileID: 925989044574366851}
   - {fileID: 925989044232422508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8194172200167827834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925989043990204239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53181fd4aee793408627f33ffc8dbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayTime: 3
 --- !u!1 &925989044232422483
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +292,7 @@ Transform:
   - {fileID: 2255764245411996248}
   - {fileID: 925989044430109424}
   m_Father: {fileID: 925989043990204238}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &8649629429680955077
 CircleCollider2D:
@@ -456,7 +470,7 @@ Transform:
   - {fileID: 8993943976397496593}
   - {fileID: 925989044411633739}
   m_Father: {fileID: 925989043990204238}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1961301769796034421
 CircleCollider2D:
@@ -19325,11 +19339,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925989043990204238}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19385,6 +19394,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
@@ -19395,11 +19409,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925989043990204238}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19454,6 +19463,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight (2)
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
@@ -19465,11 +19479,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925989043990204238}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19525,6 +19534,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
@@ -19535,11 +19549,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925989043990204238}
     m_Modifications:
-    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
-        type: 3}
-      propertyPath: m_Name
-      value: ShotStreight (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 7212604391590899907, guid: 919cab0ded262324dbb925f2c6e6bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19594,6 +19603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212604391590899905, guid: 919cab0ded262324dbb925f2c6e6bcab,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotStreight (3)
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 659661426338295650, guid: 919cab0ded262324dbb925f2c6e6bcab, type: 3}
