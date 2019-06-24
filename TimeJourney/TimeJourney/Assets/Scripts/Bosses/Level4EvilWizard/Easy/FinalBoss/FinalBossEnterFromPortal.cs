@@ -16,6 +16,7 @@ public class FinalBossEnterFromPortal : MonoBehaviour
             }
             else
             {
+
                 if (!oneTime)
                 {
                     GetComponent<FinalBossMovement>().enabled = false;

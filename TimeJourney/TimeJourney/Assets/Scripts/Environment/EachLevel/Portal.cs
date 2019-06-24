@@ -7,13 +7,13 @@ public class Portal : MonoBehaviour
     public string m_NextSceneName;
     public SaveSystemSO saveSystemSO;
     public GameObject fade;
-
+    public bool switchToNonLevelScene;
     public bool onTrigger;
 
     public void Start()
     {
         onTrigger = false;
-        if(m_NextSceneName != "Credits")
+        if(!switchToNonLevelScene)
         {
             m_NextSceneName += saveSystemSO.m_Difficulty;
         }

@@ -11,6 +11,7 @@ public class FinalBossMovementV2 : MonoBehaviour
     public bool freezed;
     public float timeFreezed;
     public SpriteRenderer[] bodyParts;
+    public GameObject tutorialText;
 
     private bool once;
     private void OnEnable()
@@ -20,6 +21,12 @@ public class FinalBossMovementV2 : MonoBehaviour
             once = true;
             return;
         }
+
+        if(normal)
+        {
+            tutorialText.SetActive(true);
+        }
+
         transform.localScale = new Vector3(0.03f, 0.03f, 0);
         GetComponent<FinalBossEnterFromPortal>().enabled = true;
     }
