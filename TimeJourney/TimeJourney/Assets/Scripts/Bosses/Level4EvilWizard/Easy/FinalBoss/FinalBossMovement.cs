@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class FinalBossMovement : MonoBehaviour
 {
-    public GameObject wizzardPortal;
     public GameObject shot;
     public GameObject shotStraight;
     public GameObject shotDiagonally;

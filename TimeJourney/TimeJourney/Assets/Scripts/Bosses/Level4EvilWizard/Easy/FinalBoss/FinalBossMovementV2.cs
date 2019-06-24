@@ -22,7 +22,7 @@ public class FinalBossMovementV2 : MonoBehaviour
             return;
         }
 
-        if(normal)
+        if (normal)
         {
             tutorialText.SetActive(true);
         }
@@ -46,7 +46,7 @@ public class FinalBossMovementV2 : MonoBehaviour
 
     IEnumerator StartAttack()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
             int random = Random.Range(0, positions.Length);
             Instantiate(HurtingPortal, positions[random], Quaternion.identity);

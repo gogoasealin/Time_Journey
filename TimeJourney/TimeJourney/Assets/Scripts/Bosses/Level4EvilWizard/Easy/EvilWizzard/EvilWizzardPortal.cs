@@ -55,7 +55,7 @@ public class EvilWizzardPortal : MonoBehaviour
 
     public void OnDisable()
     {
-        if (boss.GetComponent<FinalBossHealth>().m_CurrentHealth > 0)
+        if (boss.GetComponent<Health>().m_CurrentHealth > 0)
         {
             Invoke("Enable", 0.5f);
         }

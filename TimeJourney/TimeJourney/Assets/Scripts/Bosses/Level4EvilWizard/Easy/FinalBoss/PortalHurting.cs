@@ -43,8 +43,6 @@ public class PortalHurting : MonoBehaviour
             cc2D.radius -= 0.025f;
             yield return new WaitForSeconds(.1f);
         }
-        Time.timeScale = 0;
-
         Destroy(gameObject);
     }
 
@@ -58,7 +56,6 @@ public class PortalHurting : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StopAllCoroutines();
             damageToPlayer = DamageAnimation();
             StartCoroutine(damageToPlayer);
         }
