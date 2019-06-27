@@ -31,11 +31,15 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Revive();
+            SceneManager.LoadScene("Menu");
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu");
+            Revive();
         }
         if (Input.GetKeyDown("[1]"))
         {
@@ -79,7 +83,8 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            player.transform.position = new Vector3(90, 0, 0);
+            saveSystemSO.m_LoadGame = true;
+            LoadGame();
         }
 
     }
@@ -117,13 +122,12 @@ public class GameController : MonoBehaviour
     {
         saveSystemSO.m_PlayerPositionX = player.transform.position.x;
         saveSystemSO.m_PlayerPositionY = player.transform.position.y;
-
         //save current level name without the m_difficulty
-        if (saveSystemSO.m_SceneName.Contains("Easy"))
+        if (saveSystemSO.m_Difficulty.Contains("Easy"))
         {
             saveSystemSO.m_SceneName = SceneManager.GetActiveScene().name.Replace("Easy", "");
         }
-        else if (saveSystemSO.m_SceneName.Contains("Normal"))
+        else if (saveSystemSO.m_Difficulty.Contains("Normal"))
         {
             saveSystemSO.m_SceneName = SceneManager.GetActiveScene().name.Replace("Normal", "");
         }

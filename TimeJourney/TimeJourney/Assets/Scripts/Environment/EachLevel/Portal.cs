@@ -13,7 +13,7 @@ public class Portal : MonoBehaviour
     public void Start()
     {
         onTrigger = false;
-        if(!switchToNonLevelScene)
+        if (!switchToNonLevelScene)
         {
             m_NextSceneName += saveSystemSO.m_Difficulty;
         }
@@ -49,6 +49,7 @@ public class Portal : MonoBehaviour
 
     IEnumerator LoadScene(string Level)
     {
+        Destroy(GameController.instance);
         fade.SetActive(true);
         fade.GetComponent<Animator>().SetTrigger("end");
         yield return new WaitForSeconds(1.1f);
