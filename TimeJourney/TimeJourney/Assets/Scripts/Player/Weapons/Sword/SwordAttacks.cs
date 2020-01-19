@@ -31,6 +31,7 @@ public class SwordAttacks : MonoBehaviour
         }
     }
 
+	// Sword-attack
     private void SwordAttack()
     {
         SwordAnimation();
