@@ -41,50 +41,16 @@ public class EnemyNormalHealth : Health
         switch (type)
         {
             case "Fire":
-                if (ImuneAtFire)
-                {
-                    return;
-                }
-                if (weakAtFire)
-                {
-                    m_CurrentHealth -= dmgAmount * 3;
-                }
-                else
-                {
-                    m_CurrentHealth -= dmgAmount;
-                }
+                HandleFireDamage(dmgAmount);
                 break;
             case "Ice":
-                if (ImuneAtIce)
-                {
-                    return;
-                }
-                if (weakAtIce)
-                {
-                    m_CurrentHealth -= dmgAmount * 3;
-                }
-                else
-                {
-                    m_CurrentHealth -= dmgAmount;
-                }
+                HandleIceDamage(dmgAmount);
                 break;
             case "Light":
-                if (ImuneAtLight)
-                {
-                    return;
-                }
-                if (weakAtLight)
-                {
-                    m_CurrentHealth -= dmgAmount * 3;
-                }
-                else
-                {
-                    m_CurrentHealth -= dmgAmount;
-                }
+                HandleLightDamage(dmgAmount);
                 break;
             default:
                 m_CurrentHealth -= dmgAmount;
-                Debug.Log("something is not ok");
                 break;
         }
         if (m_CurrentHealth <= 0)
@@ -94,6 +60,54 @@ public class EnemyNormalHealth : Health
         }
         GetComponent<EnemyNormalMovement>().PlayerInSight();
         GetDamageAnimation();
+    }
+
+    public void HandleFireDamage(int dmgAmount)
+    {
+        if (ImuneAtFire)
+        {
+            return;
+        }
+        if (weakAtFire)
+        {
+            m_CurrentHealth -= dmgAmount * 3;
+        }
+        else
+        {
+            m_CurrentHealth -= dmgAmount;
+        }
+    }
+
+    public void HandleIceDamage(int dmgAmount)
+    {
+        if (ImuneAtIce)
+        {
+            return;
+        }
+        if (weakAtFire)
+        {
+            m_CurrentHealth -= dmgAmount * 3;
+        }
+        else
+        {
+            m_CurrentHealth -= dmgAmount;
+        }
+    }
+
+    public void HandleLightDamage(int dmgAmount)
+    {
+        if (ImuneAtLight)
+        {
+            return;
+        }
+        if (weakAtFire)
+        {
+            m_CurrentHealth -= dmgAmount * 3;
+        }
+        else
+        {
+            m_CurrentHealth -= dmgAmount;
+        }
     }
 
     public override void Die()
@@ -132,11 +146,3 @@ public class EnemyNormalHealth : Health
     }
 
 }
-
-
-
-
-
-
-
-

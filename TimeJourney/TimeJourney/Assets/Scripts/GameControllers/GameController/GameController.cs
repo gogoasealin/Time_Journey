@@ -41,6 +41,19 @@ public class GameController : MonoBehaviour
         {
             Revive();
         }
+
+        CheckInput();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            saveSystemSO.m_LoadGame = true;
+            LoadGame();
+        }
+
+    }
+
+    public void CheckInput()
+    {
         if (Input.GetKeyDown("[1]"))
         {
             SceneManager.LoadScene("Level1Easy");
@@ -81,12 +94,6 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene("Level5Normal");
         }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            saveSystemSO.m_LoadGame = true;
-            LoadGame();
-        }
-
     }
 
     public void GameOver()
