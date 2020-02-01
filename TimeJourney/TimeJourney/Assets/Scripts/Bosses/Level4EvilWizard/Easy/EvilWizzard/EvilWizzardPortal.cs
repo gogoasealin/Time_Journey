@@ -3,18 +3,29 @@ using UnityEngine;
 
 public class EvilWizzardPortal : MonoBehaviour
 {
+    // Corutine for portal animation
     private IEnumerator portalAnimation;
+
+    // reference to the portal particle system
     private ParticleSystemRenderer portalRenderer;
 
+    // teleport positions 
     public Vector3[] teleportPosition;
 
+    // reference to the gameobject
     public GameObject boss;
 
+    /// <summary>
+    /// MonoBehaviour Awake function
+    /// </summary>
     private void Awake()
     {
         portalRenderer = GetComponentInChildren<ParticleSystem>().GetComponent<ParticleSystemRenderer>();
     }
 
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     private void OnEnable()
     {
         int random = Random.Range(0, teleportPosition.Length);
@@ -23,6 +34,10 @@ public class EvilWizzardPortal : MonoBehaviour
         StartCoroutine(portalAnimation);
     }
 
+    /// <summary>
+    /// Increase portal size
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator PortalIncreaseAnimation()
     {
         while (portalRenderer.minParticleSize < 0.3f)
@@ -34,6 +49,10 @@ public class EvilWizzardPortal : MonoBehaviour
         EnableBoss();
     }
 
+    /// <summary>
+    /// Decrease portal size
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator PortalDecreaseAnimation()
     {
         while (portalRenderer.maxParticleSize > 0)
@@ -44,15 +63,20 @@ public class EvilWizzardPortal : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
         gameObject.SetActive(false);
-
     }
 
+    /// <summary>
+    /// Disable the portal
+    /// </summary>
     public void Disable()
     {
         portalAnimation = PortalDecreaseAnimation();
         StartCoroutine(portalAnimation);
     }
 
+    /// <summary>
+    /// MonoBehaviour OnDisable function for when the gameobject is diactivated.
+    /// </summary>
     public void OnDisable()
     {
         if (boss.GetComponent<Health>().m_CurrentHealth > 0)
@@ -61,11 +85,17 @@ public class EvilWizzardPortal : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     public void Enable()
     {
         gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Enable the boss
+    /// </summary>
     public void EnableBoss()
     {
         boss.transform.position = new Vector3(transform.position.x, transform.position.y - 1f, 0);

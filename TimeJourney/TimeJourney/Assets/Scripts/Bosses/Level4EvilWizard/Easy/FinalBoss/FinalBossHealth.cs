@@ -3,21 +3,38 @@ using UnityEngine;
 
 public class FinalBossHealth : Health
 {
+    // Coroutine for damage animation
     private IEnumerator damageAnimation;
+
+    // reference for body parts
     public SpriteRenderer[] bodyParts;
-    public TriggerBossFightWizard triggerBossFight;
+
+    //reference for TriggerBossFight script
+    public TriggerBossFight triggerBossFight;
+
+    //receiving damage status
     public bool receiveDMG;
 
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     private void OnEnable()
     {
         PrepareNextDamageAnimation();
     }
 
+    /// <summary>
+    /// MonoBehaviour Start function used to initialize variables
+    /// </summary>
     public override void Start()
     {
         base.Start();
     }
 
+    /// <summary>
+    /// Receive damage from hit with sword
+    /// </summary>
+    /// <param name="dmgAmount">amount of damage to receive</param>
     public override void GetDamage(int dmgAmount)
     {
         if (!receiveDMG)
@@ -34,6 +51,11 @@ public class FinalBossHealth : Health
         SetBossColorState(false);
     }
 
+    /// <summary>
+    /// Receive damage from player stones
+    /// </summary>
+    /// <param name="type">stone attack type (fire, ice, light)</param>
+    /// <param name="dmgAmount">amount of damage to receive</param>
     public override void GetDamage(string type, int dmgAmount)
     {
         if (!receiveDMG)
@@ -52,6 +74,10 @@ public class FinalBossHealth : Health
 
     }
 
+    /// <summary>
+    /// Set boss damage receiving status (color)
+    /// </summary>
+    /// <param name="canReceiveDamage"></param>
     public void SetBossColorState(bool canReceiveDamage)
     {
         Color newColor;
@@ -72,11 +98,18 @@ public class FinalBossHealth : Health
         }
     }
 
+    /// <summary>
+    /// Play animation for receiving damage
+    /// </summary>
     public override void GetDamageAnimation()
     {
         damageAnimation = DamageAnimation();
         StartCoroutine(damageAnimation);
     }
+
+    /// <summary>
+    /// Set all body parts as visible
+    /// </summary>
     public void PrepareNextDamageAnimation()
     {
         StopAllCoroutines();
@@ -86,6 +119,10 @@ public class FinalBossHealth : Health
         }
     }
 
+    /// <summary>
+    /// Play receivin damage animation
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator DamageAnimation()
     {
         for (int i = 0; i < 12; i++)
@@ -99,6 +136,9 @@ public class FinalBossHealth : Health
         PrepareNextDamageAnimation();
     }
 
+    /// <summary>
+    /// Logic when the current object die
+    /// </summary>
     public override void Die()
     {
         triggerBossFight.Revert();

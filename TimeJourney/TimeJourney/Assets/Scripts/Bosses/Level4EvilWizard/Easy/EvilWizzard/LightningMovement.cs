@@ -3,15 +3,27 @@ using UnityEngine;
 
 public class LightningMovement : MonoBehaviour
 {
+    // lighting positions
     public Vector3[] position;
+
+    // current target position
     Vector3 goPosition;
 
+    // reference to boss gameobject
     public GameObject boss;
+
+    // damage amount
     public int m_enemyDamageAmount = 40;
+
+    // attack delay
     public float m_delayBetweenAttacks = 0.5f;
 
+    // coroutine for damaging the player
     private IEnumerator damageToPlayer;
 
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     private void OnEnable()
     {
         transform.position = position[Random.Range(0, position.Length)];
@@ -26,6 +38,9 @@ public class LightningMovement : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     private void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, goPosition, 2f * Time.deltaTime);
@@ -36,6 +51,10 @@ public class LightningMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Handle the trigger collision enter between this gameobject and another one
+    /// </summary>
+    /// <param name="other">the Gameobject that is colliding with this</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -50,6 +69,9 @@ public class LightningMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Play animation for receiving damage
+    /// </summary>
     public IEnumerator DamageAnimation()
     {
         while (true)
@@ -59,14 +81,22 @@ public class LightningMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Handle the trigger collision exit between this gameobject and another one
+    /// </summary>
+    /// <param name="other">the Gameobject that is colliding with this</param>
     private void OnTriggerExit2D(Collider2D other)
     {
+        //Check if the other gameobject has tag Player
         if (other.CompareTag("Player"))
         {
             StopCoroutine(damageToPlayer);
         }
     }
 
+    /// <summary>
+    /// MonoBehaviour OnDisable function for when the gameobject is diactivated.
+    /// </summary>
     void OnDisable()
     {
         boss.GetComponent<EvilWizardHealth>().SetBossColorState(true);
@@ -74,6 +104,9 @@ public class LightningMovement : MonoBehaviour
         Invoke("RetreatBoss", 2f);
     }
 
+    /// <summary>
+    /// Retreat Boss
+    /// </summary>
     void RetreatBoss()
     {
         boss.GetComponent<EvilWizardHealth>().SetBossColorState(false);

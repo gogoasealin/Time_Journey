@@ -3,17 +3,39 @@ using UnityEngine;
 
 public class FinalBossMovementV2 : MonoBehaviour
 {
+    // reference to hurting portal object
     public GameObject HurtingPortal;
+
+    // positions where the boss can move
     public Vector3[] positions;
+
+    // reference to the shot
     public GameObject shot;
+
+    // reference to attack Coroutine
     private IEnumerator attack;
+
+    // attack type;
     public bool normal;
+
+    // freezed status
     public bool freezed;
+
+    // freeze duration
     public float timeFreezed;
+
+    // reference for body parts
     public SpriteRenderer[] bodyParts;
+
+    // reference to tutorial Text
     public GameObject tutorialText;
 
+    // status for only one time action
     private bool once;
+
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     private void OnEnable()
     {
         if (!once)
@@ -31,6 +53,9 @@ public class FinalBossMovementV2 : MonoBehaviour
         GetComponent<FinalBossEnterFromPortal>().enabled = true;
     }
 
+    /// <summary>
+    /// Trigger attack
+    /// </summary>
     public void Attack()
     {
         if (normal)
@@ -44,6 +69,10 @@ public class FinalBossMovementV2 : MonoBehaviour
         StartCoroutine(attack);
     }
 
+    /// <summary>
+    /// attack coroutine 
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StartAttack()
     {
         for (int i = 0; i < 5; i++)
@@ -56,6 +85,10 @@ public class FinalBossMovementV2 : MonoBehaviour
         Invoke("RetreatBoss", 2f);
     }
 
+    /// <summary>
+    /// normal attack coroutine
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StartAttackNormal()
     {
         for (int i = 0; i < 5; i++)
@@ -70,12 +103,18 @@ public class FinalBossMovementV2 : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// retreat boss 
+    /// </summary>
     void RetreatBoss()
     {
         GetComponent<FinalBossHealth>().SetBossColorState(false);
         GetComponent<WizardBossRetreat>().enabled = true;
     }
 
+    /// <summary>
+    /// retreat
+    /// </summary>
     void Retreat()
     {
         CancelInvoke();
@@ -86,6 +125,9 @@ public class FinalBossMovementV2 : MonoBehaviour
         GetComponent<WizardBossRetreat>().enabled = true;
     }
 
+    /// <summary>
+    /// Freeze
+    /// </summary>
     public void Freeze()
     {
         for (int j = 0; j < bodyParts.Length; j++)
@@ -97,6 +139,9 @@ public class FinalBossMovementV2 : MonoBehaviour
         Invoke("DisableFreeze", timeFreezed);
     }
 
+    /// <summary>
+    /// Unfreeze
+    /// </summary>
     public void DisableFreeze()
     {
         freezed = false;

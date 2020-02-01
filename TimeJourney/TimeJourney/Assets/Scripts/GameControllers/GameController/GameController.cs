@@ -4,16 +4,30 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    // reference to gamecontroller singleton instance
     public static GameController instance;
+
+    // reference to the player 
     public GameObject player;
+
+    // reference to the sword logic 
     public GameObject swordLogic;
+
+    //reference to save system
     public SaveSystemSO saveSystemSO;
+
+    // player death status
     private bool m_death;
 
+    //reference to special action
     public Action SpecialAction = delegate { };
+
     // Menu
     GameObject m_Menu;
 
+    /// <summary>
+    /// MonoBehaviour Awake function
+    /// </summary>
     void Awake()
     {
         if (instance != null && instance != this)
@@ -27,6 +41,9 @@ public class GameController : MonoBehaviour
         LoadGame();
     }
 
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
@@ -52,6 +69,9 @@ public class GameController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// CheckInput
+    /// </summary>
     public void CheckInput()
     {
         if (Input.GetKeyDown("[1]"))
@@ -96,6 +116,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// GameOver
+    /// </summary>
     public void GameOver()
     {
         if (!m_death)
@@ -108,6 +131,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Revive
+    /// </summary>
     private void Revive()
     {
         string currentSceneName = saveSystemSO.m_SceneName + saveSystemSO.m_Difficulty;
@@ -125,6 +151,9 @@ public class GameController : MonoBehaviour
         player.GetComponent<PlayerHealth>().Revive();
     }
 
+    /// <summary>
+    /// Save Game
+    /// </summary>
     public void SaveGame()
     {
         saveSystemSO.m_PlayerPositionX = player.transform.position.x;
@@ -145,6 +174,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Load Game
+    /// </summary>
     public void LoadGame()
     {
         string currentSceneName = saveSystemSO.m_SceneName + saveSystemSO.m_Difficulty;
@@ -179,6 +211,9 @@ public class GameController : MonoBehaviour
         saveSystemSO.m_LoadGame = false;
     }
 
+    /// <summary>
+    /// Save Level1
+    /// </summary>
     public void SaveLevel1()
     {
         saveSystemSO.m_PlayerPositionX = 0;
@@ -215,6 +250,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Do Special ACtion
+    /// </summary>
     public void DoSpecialAction()
     {
         SpecialAction();

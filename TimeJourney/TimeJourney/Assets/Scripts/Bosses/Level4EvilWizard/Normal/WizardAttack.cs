@@ -3,16 +3,23 @@ using UnityEngine;
 
 public class WizardAttack : MonoBehaviour
 {
-
+    // reference to lightning object
     public GameObject lightning;
+
+    // Coroutine for lighting attack
     private IEnumerator lightningAttack;
 
-
+    /// <summary>
+    /// MonoBehaviour Start function used to initialize variables
+    /// </summary>
     void Start()
     {
         Invoke("InitiateAttack", 5f);
     }
 
+    /// <summary>
+    /// Initiate attack
+    /// </summary>
     public void InitiateAttack()
     {
         GetComponent<WizardMovement>().attack = true;
@@ -21,11 +28,17 @@ public class WizardAttack : MonoBehaviour
         Invoke("LaunchAttack", 2f);
     }
 
+    /// <summary>
+    /// Trigger attack
+    /// </summary>
     public void LaunchAttack()
     {
         lightning.SetActive(true);
     }
 
+    /// <summary>
+    /// Stop attack
+    /// </summary>
     public void StopAttack()
     {
         GetComponent<EvilWizardNormalHealth>().SetBossColorState(false);
@@ -36,6 +49,9 @@ public class WizardAttack : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// MonoBehaviour OnDisable function for when the gameobject is diactivated.
+    /// </summary>
     private void OnDisable()
     {
         CancelInvoke("InitiateAttack");

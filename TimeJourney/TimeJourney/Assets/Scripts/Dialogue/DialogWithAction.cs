@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class DialogWithAction : MonoBehaviour
 {
+    //dialog sentences
     public string[] dialogSentence;
+
+    //next dialog sentences
     public string[] nextDialogSentences;
+
+    //current index
     public int index;
+
+    //typing speedd
     public float typingSpeed = 0.015f;
+
+    // coroutine for typing
     private IEnumerator type;
-    public int endedDialogCount; // 
+
+    // dialog count 
+    public int endedDialogCount;
+
+    // nextLine status
     private bool nextLine;
+
+    // dialog status
     public bool dialogEnded;
 
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     void OnEnable()
     {
         DialogsController.instance.textBackGround.SetActive(true);
@@ -21,7 +39,9 @@ public class DialogWithAction : MonoBehaviour
         StartCoroutine(type);
     }
 
-
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     private void Update()
     {
         if (DialogsController.instance.textDisplay.text == dialogSentence[index])
@@ -34,6 +54,10 @@ public class DialogWithAction : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Coroutine for typing
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Type()
     {
         foreach (char letter in dialogSentence[index].ToCharArray())
@@ -44,6 +68,9 @@ public class DialogWithAction : MonoBehaviour
         nextLine = true;
     }
 
+    /// <summary>
+    /// type next sentence
+    /// </summary>
     public void NextSentence()
     {
         if (index < dialogSentence.Length - 1)
@@ -59,6 +86,9 @@ public class DialogWithAction : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Handle the next dialog typing
+    /// </summary>
     public void NextDialogSentences()
     {
         if (nextDialogSentences.Length > 0)
@@ -70,6 +100,9 @@ public class DialogWithAction : MonoBehaviour
         EndDialog();
     }
 
+    /// <summary>
+    /// Handle the end of dialogs
+    /// </summary>
     public void EndDialog()
     {
         index = 0;
@@ -87,6 +120,9 @@ public class DialogWithAction : MonoBehaviour
         enabled = false;
     }
 
+    /// <summary>
+    /// Check dialog status
+    /// </summary>
     public void CheckDialogStatus()
     {
         if (!dialogEnded)

@@ -2,23 +2,36 @@
 
 public class StoneChanger : MonoBehaviour
 {
-    public GameObject[] prefabtype; // list of prefabs of all type that player can change ex:fire/ice
-    public GameObject[] parentForType; // the parent of the shots
+    // list of prefabs of all type that player can change ex:fire/ice
+    public GameObject[] prefabtype;
+    // the parent of the shots
+    public GameObject[] parentForType;
+    // particle system type
     public GameObject[] particleSystemType;
+    // stone available
     public int stoneAvailable;
-
+    // stone attacks
     private StoneAttacks StoneAttacks;
 
+    /// <summary>
+    /// MonoBehaviour Start function used to initialize variables
+    /// </summary>
     private void Start()
     {
         StoneAttacks = GetComponent<StoneAttacks>();
     }
 
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     private void OnEnable()
     {
         SetPS("Fire");
     }
 
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -41,6 +54,10 @@ public class StoneChanger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Change stone
+    /// </summary>
+    /// <param name="name">selected stone name</param>
     public void ChangeStone(string name)
     {
         SetType(name);
@@ -48,6 +65,10 @@ public class StoneChanger : MonoBehaviour
         SetPS(name);
     }
 
+    /// <summary>
+    /// Set type
+    /// </summary>
+    /// <param name="name">type name</param>
     public void SetType(string name)
     {
         for (int i = 0; i < prefabtype.Length; i++)
@@ -60,6 +81,10 @@ public class StoneChanger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set parent
+    /// </summary>
+    /// <param name="name"></param>
     public void SetParent(string name)
     {
         for (int i = 0; i < parentForType.Length; i++)
@@ -72,6 +97,10 @@ public class StoneChanger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set particle system
+    /// </summary>
+    /// <param name="name"></param>
     public void SetPS(string name)
     {
         for (int i = 0; i < particleSystemType.Length; i++)

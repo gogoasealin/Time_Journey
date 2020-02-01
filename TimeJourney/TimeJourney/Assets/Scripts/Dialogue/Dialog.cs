@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
+    //dialog sentences
     public string[] dialogSentence;
+
+    //second dialog sentences
     public string[] moreDialogSentences;
+
+    //current index
     public int index;
+
+    //typing speedd
     public float typingSpeed = 0.015f;
+
+    // coroutine for typing
     private IEnumerator type;
+
+    //dialog status
     public bool destroyDialog;
+
+    //second dialog status
     private bool moreDialog;
 
+    /// <summary>
+    /// MonoBehaviour OnEnable function for when the gameobject is activated.
+    /// </summary>
     void OnEnable()
     {
         DialogsController.instance.textBackGround.SetActive(true);
@@ -20,7 +36,9 @@ public class Dialog : MonoBehaviour
         StartCoroutine(type);
     }
 
-
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     private void Update()
     {
         if (DialogsController.instance.textDisplay.text == dialogSentence[index])
@@ -32,6 +50,10 @@ public class Dialog : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Coroutine for typing
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Type()
     {
         foreach (char letter in dialogSentence[index].ToCharArray())
@@ -41,6 +63,9 @@ public class Dialog : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// type next sentence
+    /// </summary>
     public void NextSentence()
     {
         if (index < dialogSentence.Length - 1)
@@ -56,6 +81,9 @@ public class Dialog : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Handle the second dialog typing
+    /// </summary>
     public void MoreDialogSentences()
     {
         if (moreDialogSentences.Length > 0)
@@ -66,6 +94,9 @@ public class Dialog : MonoBehaviour
         EndDialog();
     }
 
+    /// <summary>
+    /// Handle the end of dialogs
+    /// </summary>
     public void EndDialog()
     {
         index = 0;
@@ -80,6 +111,9 @@ public class Dialog : MonoBehaviour
         GetComponent<Dialog>().enabled = false;
     }
 
+    /// <summary>
+    /// Check dialog status
+    /// </summary>
     public void CheckDialogStatus()
     {
         EndDialog();

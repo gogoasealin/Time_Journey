@@ -2,19 +2,33 @@
 
 public class EnemyNormalMovement : EnemyMovement
 {
-
+    // patrol position
     public float[] m_patrolPosition;
 
+    // next position
     [SerializeField] private int nextPosition;
-    private Vector3 m_playerLastPosition;
-    private Transform m_playerBodyCollider;
-    private bool m_checkLastPosition; // say if checked last player position;
-    public bool m_FacingRight;  // direction currently facing.
 
+    // last position
+    private Vector3 m_playerLastPosition;
+
+    // reference to player body collider
+    private Transform m_playerBodyCollider;
+
+    // say if checked last player position;
+    private bool m_checkLastPosition;
+
+    // direction currently facing.
+    public bool m_FacingRight;
+
+    // chase state
     private bool enterStateChase;
+
+    // patrol state
     private bool enterStatePatrol;
 
-
+    /// <summary>
+    /// MonoBehaviour Start function used to initialize variables
+    /// </summary>
     private void Start()
     {
         m_playerBodyCollider = GameController.instance.player.transform.GetChild(5).GetChild(0).transform;
@@ -31,6 +45,9 @@ public class EnemyNormalMovement : EnemyMovement
         enterStateChase = false;
     }
 
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     private void Update()
     {
         if (!m_playerInSight)
@@ -43,6 +60,9 @@ public class EnemyNormalMovement : EnemyMovement
         }
     }
 
+    /// <summary>
+    /// Patrol 
+    /// </summary>
     protected override void Patrol()
     {
         if (enterStatePatrol)
@@ -66,6 +86,9 @@ public class EnemyNormalMovement : EnemyMovement
         }
     }
 
+    /// <summary>
+    /// Flip patrol
+    /// </summary>
     protected virtual void CheckPatrolFlip()
     {
         if (transform.localPosition.x > m_patrolPosition[nextPosition] && m_FacingRight)
@@ -78,6 +101,9 @@ public class EnemyNormalMovement : EnemyMovement
         }
     }
 
+    /// <summary>
+    /// Chase
+    /// </summary>
     protected override void ChasePlayer()
     {
         if (enterStateChase)
@@ -102,6 +128,9 @@ public class EnemyNormalMovement : EnemyMovement
         }
     }
 
+    /// <summary>
+    /// Flip check when chasing
+    /// </summary>
     protected virtual void CheckChasingFlip()
     {
         if (transform.position.x > m_playerBodyCollider.position.x && m_FacingRight)
@@ -114,6 +143,9 @@ public class EnemyNormalMovement : EnemyMovement
         }
     }
 
+    /// <summary>
+    /// Flip
+    /// </summary>
     protected override void Flip()
     {
         if (m_FacingRight)
@@ -127,6 +159,10 @@ public class EnemyNormalMovement : EnemyMovement
         m_FacingRight = !m_FacingRight;
     }
 
+    /// <summary>
+    /// Calculate distance
+    /// </summary>
+    /// <returns></returns>
     protected virtual bool CalculateDistance()
     {
         if (transform.localPosition.x == m_patrolPosition[nextPosition])
@@ -136,14 +172,18 @@ public class EnemyNormalMovement : EnemyMovement
         return true;
     }
 
-
-
+    /// <summary>
+    /// Check if player is in sight
+    /// </summary>
     public override void PlayerInSight()
     {
         m_checkLastPosition = false;
         m_playerInSight = true;
     }
 
+    /// <summary>
+    /// Check if player is out of sight
+    /// </summary>
     public override void PlayerOutOfSight()
     {
         m_playerInSight = false;

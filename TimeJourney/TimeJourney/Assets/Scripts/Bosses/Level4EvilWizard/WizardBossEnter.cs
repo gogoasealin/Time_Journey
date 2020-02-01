@@ -2,8 +2,12 @@
 
 public class WizardBossEnter : MonoBehaviour
 {
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     private void Update()
     {
+        // update the local scale
         transform.localScale += new Vector3(0.01f, 0.01f, 0);
         if (transform.localScale.x >= 1f)
         {

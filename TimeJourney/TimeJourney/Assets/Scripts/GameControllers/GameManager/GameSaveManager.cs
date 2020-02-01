@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class GameSaveManager : MonoBehaviour
 {
-
+    // reference to gamesave manager singleton instance
     [HideInInspector] public static GameSaveManager instance;
 
+    //reference to save system
     public SaveSystemSO saveSystemSO;
 
+    /// <summary>
+    /// MonoBehaviour Awake function
+    /// </summary>
     void Awake()
     {
         if (instance == null)
@@ -24,6 +28,9 @@ public class GameSaveManager : MonoBehaviour
         Load();
     }
 
+    /// <summary>
+    /// Save
+    /// </summary>
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -40,7 +47,9 @@ public class GameSaveManager : MonoBehaviour
         file.Close();
     }
 
-
+    /// <summary>
+    /// Load
+    /// </summary>
     public void Load()
     {
         if (File.Exists(Application.persistentDataPath + "/playerinfo.dat"))
@@ -48,7 +57,7 @@ public class GameSaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerinfo.dat", FileMode.Open);
 
-            PlayerInfo data = (PlayerInfo)bf.Deserialize(file);
+            PlayerInfo data = (PlayerInfo) bf.Deserialize(file);
 
             saveSystemSO.m_PlayerPositionX = data.m_PlayerPositionX;
             saveSystemSO.m_PlayerPositionY = data.m_PlayerPositionY;

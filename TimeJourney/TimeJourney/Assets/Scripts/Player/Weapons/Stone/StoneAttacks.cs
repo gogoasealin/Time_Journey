@@ -3,8 +3,32 @@ using UnityEngine;
 
 public class StoneAttacks : MonoBehaviour
 {
+    // reference to singleton stone attacks instance
     public static StoneAttacks instance;
+    // fire weapon action
+    public Action FireWeapon = delegate { };
+    //referation to pmws
+    private PlayerMovementWithSword pmws;
+    //target
+    private Vector3 target;
+    //cam
+    public Camera cam;
+    // position from where shots begin
+    public Transform shotPosition;
+    // Parent for the current shots to use, may change for diferent shots
+    public GameObject shotsParent;
+    // gameObject to instantiate if we don't have enought 
+    public GameObject shot;
+    //current shot
+    private GameObject currentShot;
+    //levitation status
+    public bool levitation;
+    //levitation layer mask
+    public LayerMask levitationLayerMask;
 
+    /// <summary>
+    /// MonoBehaviour Awake function
+    /// </summary>
     void Awake()
     {
         if (instance != null && instance != this)
@@ -17,26 +41,18 @@ public class StoneAttacks : MonoBehaviour
         }
     }
 
-    public Action FireWeapon = delegate { };
-    private PlayerMovementWithSword pmws;
-
-    private Vector3 target;
-    public Camera cam;
-
-    public Transform shotPosition; // position from where shots begin
-
-    public GameObject shotsParent; // Parent for the current shots to use, may change for diferent shots
-    public GameObject shot; // gameObject to instantiate if we don't have enought 
-    private GameObject currentShot;
-    public bool levitation;
-    public LayerMask levitationLayerMask;
-
+    /// <summary>
+    /// MonoBehaviour Start function used to initialize variables
+    /// </summary>
     private void Start()
     {
         pmws = GameController.instance.player.GetComponent<PlayerMovementWithSword>();
         FireWeapon = StoneAttack;
     }
 
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     private void Update()
     {
         if (Input.GetMouseButtonDown(1) && pmws.canAttack)
@@ -45,6 +61,9 @@ public class StoneAttacks : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stone Levitation
+    /// </summary>
     public void StoneLevitation()
     {
         StoneAnimation();
@@ -61,11 +80,18 @@ public class StoneAttacks : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stone Attack
+    /// </summary>
     public void StoneAttack()
     {
+        //trigger stone animation
         StoneAnimation();
     }
 
+    /// <summary>
+    /// Shot
+    /// </summary>
     public void Shot()
     {
         if (!levitation)
@@ -75,12 +101,19 @@ public class StoneAttacks : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stone animation
+    /// </summary>
     public void StoneAnimation()
     {
         pmws.canAttack = false;
         pmws.animator.SetTrigger("StoneAttack");
     }
 
+    /// <summary>
+    /// Get next shot
+    /// </summary>
+    /// <returns></returns>
     public GameObject GetNextShot()
     {
         for (int i = 0; i < shotsParent.transform.childCount; i++)
@@ -96,6 +129,11 @@ public class StoneAttacks : MonoBehaviour
         return newShot;
     }
 
+    /// <summary>
+    /// Stone Levitation
+    /// </summary>
+    /// <param name="shot">shot object</param>
+    /// <param name="positionToInstantiate">shot position to instantiate</param>
     public void StoneInstantiate(GameObject shot, Vector2 positionToInstantiate)
     {
         shot.transform.position = positionToInstantiate;

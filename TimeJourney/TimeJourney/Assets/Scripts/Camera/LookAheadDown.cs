@@ -1,17 +1,22 @@
 ﻿using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LookAheadDown : MonoBehaviour
 {
+    // reference to the cinemachine 
     CinemachineFramingTransposer cvc;
 
+    /// <summary>
+    /// MonoBehaviour Awake function
+    /// </summary>
     private void Awake()
     {
         cvc = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
+    /// <summary>
+    /// MonoBehaviour Updated function called every frame
+    /// </summary>
     void Update()
     {
         if (Input.GetKey(KeyCode.S))
